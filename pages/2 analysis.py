@@ -22,7 +22,6 @@ else :
     
 
 
-
 if st.button("ทำนายผล"):
     # ทำนาย
     X = dt.drop('Sleep Disorder', axis=1)
@@ -33,10 +32,10 @@ if st.button("ทำนายผล"):
     dt_model.fit(X, y)
 
     # ข้อมูล input สำหรับทดลองจำแนกข้อมูล
-    sd = st.number_input("กรุณาเลือกข้อมูล Sleep Duration",0,10)
-    qos = st.slider("กรุณาเลือกข้อมูล Quality of Sleep",0,10)
+    sd = st.number_input("กรุณาเลือกข้อมูล Sleep Duration", 0, 10)
+    qos = st.slider("กรุณาเลือกข้อมูล Quality of Sleep", 0, 10)
     pal = st.number_input("กรุณาเลือกข้อมูล Physical Activity Level")
-    sl = st.slider("กรุณาเลือกข้อมูล Stress Level",0,10)
+    sl = st.slider("กรุณาเลือกข้อมูล Stress Level", 0, 10)
 
     x_input = np.array([[sd, qos, pal, sl]])
 
@@ -44,15 +43,15 @@ if st.button("ทำนายผล"):
     st.write(dt_model.predict(x_input))
     out = dt_model.predict(x_input)
 
-   if out[0]=="Normal":
-          st.image("./pic/iris.jpg")
-      st.header("0")
-   elif out[0]=="Sleep Apnea":
-      st.image("./pic/iris2.jpg")
-      st.header("1")
-   else:
-      st.image("./pic/iris1.jpg")  
-      st.header("2")
+    if out[0] == "Normal":
+        st.image("./pic/iris.jpg")
+        st.header("0")
+    elif out[0] == "Sleep Apnea":
+        st.image("./pic/iris2.jpg")
+        st.header("1")
+    else:
+        st.image("./pic/iris1.jpg")  
+        st.header("2")
 
     st.button("ไม่ทำนายผล")
 else:
