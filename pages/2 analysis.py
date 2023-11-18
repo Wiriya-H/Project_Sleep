@@ -45,7 +45,7 @@ if st.button("ทำนายผล"):
     Knn_model.fit(X, y)
 
     #ข้อมูล input สำหรับทดลองจำแนกข้อมูล
-   x_input = np.array([[sd, qos, pal, sl]])
+   x_input = np.array([sd, qos, pal, sl])
     # เอา input ไปทดสอบ
    st.write(Knn_model.predict(x_input))
    out=Knn_model.predict(x_input)
