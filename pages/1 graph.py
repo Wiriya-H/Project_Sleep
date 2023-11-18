@@ -29,7 +29,7 @@ plt.axis('equal')
 st.pyplot(fig)
 
 st.header("---")
-grouped_data = sleep_data.groupby(['Sleep Disorder', 'Gender']).size().reset_index(name='count')
+grouped_data = df.groupby(['Sleep Disorder', 'Gender']).size().reset_index(name='count')
 
 # Create a new DataFrame with Sleep Disorder and Gender as index, and count as values
 pivot_table = pd.pivot_table(grouped_data, values='count', index='Sleep Disorder', columns='Gender', fill_value=0)
