@@ -8,7 +8,6 @@ df = pd.read_csv('./data/Sleep_health_and_lifestyle_dataset.csv')
 
 
 st.header("Positive ")
-# Group by 'Sleep Disorder' and 'Gender' and get value counts
 grouped_data = df.groupby('Sleep Disorder')['Gender'].value_counts()
 
 # Reshape the data for plotting
@@ -28,6 +27,8 @@ for i, (sleep_disorder, counts) in enumerate(reshaped_data.iterrows()):
 # Display the figure using st.pyplot()
 st.pyplot(fig)
 
+# Optionally, you can add some space between the pie charts
+st.text("")  # Add an empty line
 st.header("Negative ")
 #df.pivot_table(index='BMI Category',columns='Sleep Disorder',aggfunc={'Sleep Disorder':'count'}).plot.pie()
 
