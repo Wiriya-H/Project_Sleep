@@ -18,3 +18,11 @@ if st.button("show bar chart"):
     st.button("Not show bar chart")
 else :
     st.button("Not show bar chart") 
+    
+    
+sd = st.slider("กรุณาเลือกข้อมูล Sleep Duration",0,10)
+qos = st.slider("กรุณาเลือกข้อมูล Quality of Sleep",0,10)
+
+pal = st.number_input("กรุณาเลือกข้อมูล Physical Activity Level")
+sl = st.number_input("กรุณาเลือกข้อมูล Stress Level")
+
