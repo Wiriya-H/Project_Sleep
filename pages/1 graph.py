@@ -12,7 +12,7 @@ st.header("---")
 
 grouped_data = df.groupby('Sleep Disorder')['Gender'].value_counts()
 reshaped_data = grouped_data.unstack()
-custom_colors = ['#C39BD3', '#D2B4DE', '#EBDEF0', '#F4ECF7']
+custom_colors = ['#ff20b6', '#6eedf2']
 fig, axes = plt.subplots(nrows=1, ncols=len(reshaped_data), figsize=(12, 4))
 for i, (sleep_disorder, counts) in enumerate(reshaped_data.iterrows()):
     ax = axes[i]
