@@ -26,17 +26,15 @@ for i, (sleep_disorder, counts) in enumerate(reshaped_data.iterrows()):
     ax.pie(counts, labels=counts.index, autopct='%1.1f%%', startangle=90, colors=custom_colors)
     ax.set_title(f'Sleep Disorder {sleep_disorder}')
 
-# Display the figure using st.pyplot()
 st.pyplot(fig)
-
-# Optionally, you can add some space between the pie charts
-st.text("")  # Add an empty line
 
 st.header("Negative ")
 pivot_table = df.pivot_table(index='BMI Category', columns='Sleep Disorder', aggfunc={'Sleep Disorder': 'count'})
-fig1, ax = plt.subplots(figsize=(20, 10))
-pivot_table.plot.pie(subplots=True, autopct='%1.1f%%', ax=ax, colors=['#C39BD3', '#D2B4DE', '#EBDEF0', '#F4ECF7'])
-plt.axis('equal') 
 
-# Display the figure using st.pyplot()
-st.pyplot(fig1)
+# พล็อต pie chart
+fig, ax = plt.subplots()
+pivot_table.plot.pie(subplots=True, autopct='%1.1f%%', ax=ax, colors=['#C39BD3', '#D2B4DE', '#EBDEF0', '#F4ECF7'])
+plt.axis('equal')  # รักษาอัตราส่วนเท่ากัน
+
+# แสดงภาพใน Streamlit โดยใช้ st.pyplot()
+st.pyplot()
