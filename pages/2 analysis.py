@@ -4,7 +4,7 @@ import pandas as pd
 from sklearn.tree import DecisionTreeClassifier
 
 df = pd.read_csv('./data/Sleep_health_and_lifestyle_dataset.csv')
-st.write(dt.head(10))
+st.table(df.head())
 
 dt1 = dt['Age'].sum()
 dt2 = dt['Sleep Duration'].sum()
