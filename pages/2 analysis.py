@@ -26,7 +26,7 @@ else :
 if st.button("ทำนายผล"):
     # ทำนาย
     X = dt.drop('Sleep Disorder', axis=1)
-    y = dt.['Sleep Disorder']   
+    y = dt.Sleep Disorder   
 
     # Use Decision Tree Classifier
     dt_model = DecisionTreeClassifier()
