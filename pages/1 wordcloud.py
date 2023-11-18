@@ -1,58 +1,27 @@
-import streamlit as st
+import numpy as np
 import pandas as pd
-import pythainlp
-from pythainlp.corpus.common import thai_stopwords
-from pythainlp import word_tokenize
-from wordcloud import WordCloud, STOPWORDS
-#import matplotlib as plt
 import matplotlib.pyplot as plt
-import pickle
+from termcolor import colored
 
-
-column_names=["text"]
 # Add header row while reading a CSV file
-df = pd.read_csv('./test.csv', names=column_names)
-df2=df['text'].str.split(pat="\t",expand=True)
-dftext=pd.DataFrame(df2)
-dftext=dftext.iloc[:,0:2]
-st.bar_chart(dftext[1].value_counts())
-thai_stopwords = list(thai_stopwords())
-#st.write(thai_stopwords)
+df = pd.read_csv('Sleep_health_and_lifestyle_dataset.csv')
 
-def text_process(text):
-    final = "".join(u for u in text if u not in ("?", ".", ";", ":", "!", '"', "ๆ", "ฯ"))
-    final = word_tokenize(final)
-    final = " ".join(word for word in final)
-    final = " ".join(word for word in final.split()
-                     if word.lower not in thai_stopwords)
-    return final
-
-dftext['text_tokens'] = dftext[0].apply(text_process)
-
-df_pos = dftext[dftext[1] == 'pos']
-pos_word_all = " ".join(text for text in df_pos['text_tokens'])
-#st.write(pos_word_all)
 
 st.header("Positive ")
-import matplotlib as mpl
-mpl.font_manager.fontManager.addfont('THSarabunNew.ttf')
-reg = r"[ก-๙a-zA-Z']+"
-fp = 'THSarabunNew.ttf'
-wordcloud = WordCloud(stopwords=thai_stopwords, background_color = 'white', max_words=2000, height = 2000, width=4000, font_path=fp, regexp=reg).generate(pos_word_all)
-fg1=plt.figure(figsize = (30,8))
-plt.imshow(wordcloud)
-plt.axis('off')
-st.pyplot(fg1)
+grouped_data = df.groupby('Sleep Disorder')['Gender'].value_counts()
+reshaped_data = grouped_data.unstack()
+fig, axes = plt.subplots(nrows=1, ncols=len(reshaped_data), figsize=(15, 5))
+custom_colors = ['#C39BD3', '#D2B4DE', '#EBDEF0', '#F4ECF7']
+for i, (sleep_disorder, counts) in enumerate(reshaped_data.iterrows()):
+    ax = axes[i]
+    ax.pie(counts, labels=counts.index, autopct='%1.1f%%', startangle=90, colors=custom_colors)
+    ax.set_title(f'Sleep Disorder {sleep_disorder}')
+
 plt.show()
 
 
 st.header("Negative ")
-#import matplotlib as mpl
-df_neg = dftext[dftext[1] == 'neg']
-neg_word_all = " ".join(text for text in df_neg['text_tokens'])
-wordcloud2 = WordCloud(stopwords=thai_stopwords, background_color = 'white', max_words=2000, height = 2000, width=4000, font_path=fp, regexp=reg).generate(neg_word_all)
-fg2=plt.figure(figsize = (30,8))
-plt.imshow(wordcloud2)
-plt.axis('off')
-st.pyplot(fg2)
+df.pivot_table(index='BMI Category',columns='Sleep Disorder',aggfunc={'Sleep Disorder':'count'}).plot.pie(autopct ='%1.1f%%',subplots=True,figsize=(20,10),colors=['#C39BD3','#D2B4DE','#EBDEF0','#F4ECF7'])
+
+plt.axis('equal')
 plt.show()
