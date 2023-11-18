@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 
 # Add header row while reading a CSV file
-df = pd.read_csv('C:/Users/wiriy/OneDrive/เดสก์ท็อป/เรียน Online/โฟลเดอร์ใหม่/Project_Sleep/data/Sleep_health_and_lifestyle_dataset.csv')
+df = pd.read_csv('./data/Sleep_health_and_lifestyle_dataset.csv')
 
 
 st.header("Positive ")
