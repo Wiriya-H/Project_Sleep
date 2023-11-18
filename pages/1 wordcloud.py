@@ -31,8 +31,9 @@ for i, (sleep_disorder, counts) in enumerate(reshaped_data.iterrows()):
     ax = axes[i]
     ax.pie(counts, labels=counts.index, autopct='%1.1f%%', startangle=90, colors=['skyblue', 'lightcoral'])
     ax.set_title(f'Sleep Disorder {sleep_disorder}')
-
-st.plt.show()
+    
+st.pyplot(fig, axes)
+plt.show()
 
 
 st.header("Negative ")
