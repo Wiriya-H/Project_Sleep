@@ -6,8 +6,10 @@ import matplotlib.pyplot as plt
 
 df = pd.read_csv('./data/Sleep_health_and_lifestyle_dataset.csv')
 
+st.table(df.head())
 
 st.header("Positive ")
+
 grouped_data = df.groupby('Sleep Disorder')['Gender'].value_counts()
 
 # Reshape the data for plotting
