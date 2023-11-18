@@ -1,79 +1,51 @@
 import streamlit as st
-
-st.image('./pic/1.jpg')
-col1,col2 = st.columns(2)
-
-with col1:
-    st.header('วิริยะ เหมมาลา')
-with col2:
-    st.subheader('สาขาวิทยาการข้อมูล')
-    st.text('คณะวิทยาศาสตร์และเทคโนโลยี')
-
-html_1 = """
-<div style="background-color:#0E2954;padding:15px;border-radius:15px 15px 15px 15px;border-style:'solid';border-color:black">
-<center><h5>การทำนายข้อมูลดอกไม้เบื้องต้น</h5></center>
-</div>
-"""
-st.markdown(html_1, unsafe_allow_html=True)
-st.markdown("")
-
+import numpy as np
 import pandas as pd
-dt = pd.read_csv('./data/Sleep_health_and_lifestyle_dataset.csv')
-st.write(dt.head(10))
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.preprocessing import LabelEncoder
 
-dt1 = dt['Sleep Duration'].sum()
-dt2 = dt['Quality of Sleep'].sum()
-dt3 = dt['Physical Activity Level'].sum()
-dt4 = dt['Stress Level'].sum()
+# Assume 'df' is your DataFrame
+df = pd.read_csv('./data/Sleep_health_and_lifestyle_dataset.csv')
 
-dx = [dt1, dt2, dt3, dt4]
-dx2 = pd.DataFrame(dx, index=["d1", "d2", "d3", "d4"])
+# Feature selection
+selected_features = ["Sleep Duration", "Quality of Sleep", "Physical Activity Level", "Stress Level"]
+X = df[selected_features]
+y = df["Sleep Disorder"]
 
-if st.button("show bar chart"):
-    st.bar_chart(dx2)
-    st.button("Not show bar chart")
-else :
-    st.button("Not show bar chart") 
+# Encoding categorical variables if any
+le = LabelEncoder()
+X['Gender'] = le.fit_transform(X['Gender'])
 
-html_2 = """
-<div style="background-color:#FFBF00;padding:15px;border-radius:15px 15px 15px 15px;border-style:'solid';border-color:black">
-<center><h5>การทำนายคลาสดอกไม้</h5></center>
-</div>
-"""
-st.markdown(html_2, unsafe_allow_html=True)
-st.markdown("")   
+for cat_column in X.select_dtypes('object').columns:
+    X[cat_column] = le.fit_transform(X[cat_column])
 
+# Create and fit the model
+dt_model = DecisionTreeClassifier()
+dt_model.fit(X, y)
 
-ptlen = st.slider("กรุณาเลือกข้อมูล petal.length",0,10)
-ptwd = st.slider("กรุณาเลือกข้อมูล petal.width",0,10)
+# Streamlit UI
+st.title("Sleep Disorder Prediction")
 
-splen = st.number_input("กรุณาเลือกข้อมูล sepal.length")
-spwd = st.number_input("กรุณาเลือกข้อมูล sepal.width")
+# User input for prediction
+sd = st.number_input("Sleep Duration", 0, 10)
+qos = st.slider("Quality of Sleep", 0, 10)
+pal = st.number_input("Physical Activity Level")
+sl = st.slider("Stress Level", 0, 10)
 
-# Assume 'dt' is the DataFrame
-X = dt.drop('Sleep Disorder', axis=1)
-y = dt["Sleep Disorder"]
+if st.button("Predict"):
+    # Prepare the input data for prediction
+    x_input = np.array([[sd, qos, pal, sl]])
 
-from sklearn.neighbors import KNeighborsClassifier
+    # Make prediction
+    prediction = dt_model.predict(x_input)
 
-if st.button("ทำนายผล"):
-    # Create and fit the model
-    Knn_model = KNeighborsClassifier(n_neighbors=3)
-    Knn_model.fit(X, y)
-
-    # Get input values
-    x_input = np.array([[ptlen, ptwd, splen, spwd]])
-
-    # Predict using the input data
-    st.write(Knn_model.predict(x_input))
-    out = Knn_model.predict(x_input)
-
-    # Display the result
-    if out[0] == "Normal":
+    # Display the prediction result
+    if prediction[0] == "Normal":
         st.header("Normal")
-    elif out[0] == "Sleep Apnea":
+    elif prediction[0] == "Sleep Apnea":
         st.header("Sleep Apnea")
     else:
-        st.header("Verginiga")
+        st.header("Other Sleep Disorder")
 
-st.button("ไม่ทำนายผล")
+# Button for not making a prediction
+st.button("Do Not Predict")
