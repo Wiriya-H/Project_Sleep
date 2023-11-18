@@ -18,7 +18,7 @@ pivot_table.plot.pie(subplots=True, autopct='%1.1f%%', ax=ax, colors=colors)
 plt.axis('equal')
 st.pyplot(fig)
 
-st.header("---")
+st.header("The relationship between (BMI) and (Sleep Disorder)")
 
 pivot_table = df.pivot_table(index='BMI Category', columns='Sleep Disorder', aggfunc={'Sleep Disorder': 'count'})
 fig, ax = plt.subplots(figsize=(20, 10))
