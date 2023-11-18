@@ -1,13 +1,3 @@
-import streamlit as st
-
-st.image('./pic/1.jpg')
-col1,col2 = st.columns(2)
-
-with col1:
-    st.header('วิริยะ เหมมาลา')
-with col2:
-    st.subheader('สาขาวิทยาการข้อมูล')
-    st.text('คณะวิทยาศาสตร์และเทคโนโลยี')
 
 html_1 = """
 <div style="background-color:#0E2954;padding:15px;border-radius:15px 15px 15px 15px;border-style:'solid';border-color:black">
@@ -18,13 +8,13 @@ st.markdown(html_1, unsafe_allow_html=True)
 st.markdown("")
 
 import pandas as pd
-dt=pd.read_csv('./data/iris.csv')
-st.write(dt.head(10))
+df=pd.read_csv('./data/Sleep_predic.csv')
+st.write(df.head(10))
 
-dt1 = dt['petal.length'].sum()
-dt2 = dt['petal.width'].sum()
-dt3 = dt['sepal.length'].sum()
-dt4 = dt['sepal.width'].sum()
+dt1 = df['Sleep Duration'].sum()
+dt2 = df['Quality of Sleep'].sum()
+dt3 = df['Physical Activity Level'].sum()
+dt4 = df['Stress Level'].sum()
 
 dx = [dt1, dt2, dt3, dt4]
 dx2 = pd.DataFrame(dx, index=["d1", "d2", "d3", "d4"])
@@ -56,8 +46,8 @@ import numpy as np
 if st.button("ทำนายผล"):
    # ทำนาย
 
-   X = dt.drop('variety', axis=1)
-   y = dt.variety   
+   X = df.drop('Sleep Disorder', axis=1)
+   y = df["Sleep Disorder"]  
 
    Knn_model = KNeighborsClassifier(n_neighbors=3)
    Knn_model.fit(X, y)
@@ -68,15 +58,12 @@ if st.button("ทำนายผล"):
    st.write(Knn_model.predict(x_input))
    out=Knn_model.predict(x_input)
 
-   if out[0]=="Setosa":
-      st.image("./pic/iris.jpg")
-      st.header("Setosa")
-   elif out[0]=="Versicolor":
-      st.image("./pic/iris2.jpg")
-      st.header("Versicolor")
+   if out[0]=="Normal":
+      st.header("Normal")
+   elif out[0]=="Sleep Apnea":
+      st.header("Sleep Apnea")
    else:
-      st.image("./pic/iris1.jpg")  
-      st.header("Verginiga")
+      st.header("Insomnia")
    st.button("ไม่ทำนายผล")
 else :
     st.button("ไม่ทำนายผล")
