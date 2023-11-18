@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 
 df = pd.read_csv('./data/Sleep_health_and_lifestyle_dataset.csv')
 
-st.table(df.head().style.set_properties(**{'background-color': '#4A235A','color': '#E2EEF3'}))
+st.table(df.head())
 
 st.header("---")
 
