@@ -30,7 +30,7 @@ if st.button("ทำนายผล"):
    #dt = pd.read_csv("./data/iris.csv") 
 
    X = dt.drop('Sleep Disorder', axis=1)
-   y = dt.[["Sleep Disorder"]]   
+   y = dt.["Sleep Disorder"]
 
    Knn_model = KNeighborsClassifier(n_neighbors=3)
    Knn_model.fit(X, y)
