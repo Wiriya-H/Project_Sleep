@@ -22,7 +22,6 @@ else :
     
 sd = st.number_input("กรุณาเลือกข้อมูล Sleep Duration",0,10)
 qos = st.slider("กรุณาเลือกข้อมูล Quality of Sleep",0,10)
-
 pal = st.number_input("กรุณาเลือกข้อมูล Physical Activity Level")
 sl = st.slider("กรุณาเลือกข้อมูล Stress Level",0,10)
 
@@ -30,8 +29,8 @@ if st.button("ทำนายผล"):
        # ทำนาย
    #dt = pd.read_csv("./data/iris.csv") 
 
-   X = dt.drop('variety', axis=1)
-   y = dt.variety   
+   X = dt.drop('Sleep Disorder', axis=1)
+   y = dt.Sleep Disorder   
 
    Knn_model = KNeighborsClassifier(n_neighbors=3)
    Knn_model.fit(X, y)
