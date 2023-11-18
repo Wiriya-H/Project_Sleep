@@ -2,7 +2,7 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder
-from sklearn.tree import DecisionTreeClassifier
+from sklearn.neighbors import KNeighborsClassifier
 
 df = pd.read_csv('./data/Sleep_health_and_lifestyle_dataset.csv')
 st.table(df.head())
@@ -37,16 +37,18 @@ if st.button("ทำนายผล"):
         x = x.drop(cat_columns, axis=1)
 
     # Create a DataFrame for prediction with the same structure as the training data
-    x_input = pd.DataFrame([[sd, qos, pal, sl, 0, 1, 0]])  # Adjust one-hot-encoded columns
+    x_input = pd.DataFrame([[sd, qos, pal]])  # Adjust one-hot-encoded columns
 
     y = df["Sleep Disorder"]
 
-    dt_model = DecisionTreeClassifier()
-    dt_model.fit(x, y)
+    Knn_model = KNeighborsClassifier(n_neighbors=3)
+    Knn_model.fit(X, y)
 
-    # Predict using the input data
-    st.write(dt_model.predict(x_input.values.reshape(1, -1)))  # Use values and reshape for 2D array
-    out = dt_model.predict(x_input.values.reshape(1, -1))
+    #ข้อมูล input สำหรับทดลองจำแนกข้อมูล
+   x_input = np.array([[ptlen, ptwd, splen, spwd]])
+    # เอา input ไปทดสอบ
+   st.write(Knn_model.predict(x_input))
+   out=Knn_model.predict(x_input)
 
     if out[0] == "Normal":
         st.header("0")
