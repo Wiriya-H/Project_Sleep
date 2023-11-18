@@ -17,7 +17,7 @@ reshaped_data = grouped_data.unstack()
 custom_colors = ['#C39BD3', '#D2B4DE', '#EBDEF0', '#F4ECF7']
 
 # Create a Streamlit figure
-fig, axes = plt.subplots(nrows=1, ncols=len(reshaped_data), figsize=(25, 5))
+fig, axes = plt.subplots(nrows=1, ncols=len(reshaped_data), figsize=(15, 15))
 
 for i, (sleep_disorder, counts) in enumerate(reshaped_data.iterrows()):
     ax = axes[i]
@@ -32,9 +32,9 @@ st.text("")  # Add an empty line
 
 st.header("Negative ")
 pivot_table = df.pivot_table(index='BMI Category', columns='Sleep Disorder', aggfunc={'Sleep Disorder': 'count'})
-fig, ax = plt.subplots()
+fig, ax = plt.subplots(figsize=(20, 20))
 pivot_table.plot.pie(subplots=True, autopct='%1.1f%%', ax=ax, colors=['#C39BD3', '#D2B4DE', '#EBDEF0', '#F4ECF7'])
-plt.axis('equal')  # Equal aspect ratio ensures that the pie chart is circular
+plt.axis('equal') 
 
 # Display the figure using st.pyplot()
 st.pyplot(fig)
