@@ -28,9 +28,6 @@ sl = st.slider("กรุณาเลือกข้อมูล Stress Level",0
 
 if st.button("ทำนายผล"):
     
-from sklearn.preprocessing import LabelEncoder
-import pandas as pd
-
 le = LabelEncoder()
 x = df.drop("Sleep Disorder", axis=1)
 x['Gender'] = le.fit_transform(x['Gender'])
