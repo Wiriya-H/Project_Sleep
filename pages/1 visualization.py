@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 
 df = pd.read_csv('./data/Sleep_health_and_lifestyle_dataset.csv')
 
-st.table(df.head())
+st.write(df.head(10))
 
 st.header("The relationship between (sex) and (Sleep Disorder)")
 
