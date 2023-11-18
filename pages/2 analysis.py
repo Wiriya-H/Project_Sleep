@@ -29,8 +29,8 @@ if st.button("ทำนายผล"):
        # ทำนาย
    #dt = pd.read_csv("./data/iris.csv") 
 
-   X = dt.drop('Sleep Disorder', axis=1)
-   y = dt.('Sleep Disorder')
+   X = dt.drop('SleepDisorder', axis=1)
+   y = dt.SleepDisorder
 
    Knn_model = KNeighborsClassifier(n_neighbors=3)
    Knn_model.fit(X, y)
