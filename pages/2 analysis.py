@@ -26,8 +26,6 @@ qos = st.slider("กรุณาเลือกข้อมูล Quality of Sle
 pal = st.number_input("กรุณาเลือกข้อมูล Physical Activity Level")
 sl = st.slider("กรุณาเลือกข้อมูล Stress Level",0,10)
 
-# ...
-
 if st.button("ทำนายผล"):
     le = LabelEncoder()
     x = df.drop("Sleep Disorder", axis=1)
@@ -44,7 +42,7 @@ if st.button("ทำนายผล"):
     dt_model.fit(x, y)
 
     # ข้อมูล input สำหรับทดลองจำแนกข้อมูล
-    x_input = np.array([[sd, qos, pal, sl]])  # Wrap the input in a 2D array
+    x_input = pd.DataFrame([[sd, qos, pal, sl, 0, 1, 0]])  # Adjust the feature values and one-hot-encoded columns
     # เอา input ไปทดสอบ
     st.write(dt_model.predict(x_input))
     out = dt_model.predict(x_input)
@@ -57,4 +55,3 @@ if st.button("ทำนายผล"):
         st.header("2")
 
 st.button("ไม่ทำนายผล")
-
