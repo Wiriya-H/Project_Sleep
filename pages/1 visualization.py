@@ -27,7 +27,7 @@ st.bar_chart(grouped_data.set_index('Age'))
 st.header("The relationship between (BMI) and (Sleep Disorder)")
 
 pivot_table = df.pivot_table(index='BMI Category', columns='Sleep Disorder', aggfunc={'Sleep Disorder': 'count'})
-fig, ax = plt.subplots(nrows=len(reshaped_data), ncols=1,figsize=(20, 10))
+fig, ax = plt.subplots(nrows=1, ncols=len(reshaped_data),figsize=(20, 10))
 pivot_table.plot.pie(subplots=True, autopct='%1.1f%%', ax=ax, colors=['#57b199', '#7fc15a', '#ffa53b', '#e33d25'])
 plt.axis('equal') 
 st.pyplot(fig)
