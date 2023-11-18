@@ -42,7 +42,7 @@ if st.button("ทำนายผล"):
     y = df["Sleep Disorder"]
 
     Knn_model = KNeighborsClassifier(n_neighbors=3)
-    Knn_model.fit(X, y)
+    Knn_model.fit(x, y)
 
     #ข้อมูล input สำหรับทดลองจำแนกข้อมูล
     x_input = np.array([sd, qos, pal, sl])
