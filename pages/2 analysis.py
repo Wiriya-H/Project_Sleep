@@ -45,8 +45,8 @@ if st.button("ทำนายผล"):
     dt_model.fit(x, y)
 
     # Predict using the input data
-    st.write(dt_model.predict(x_input.reshape(1, -1)))  # Use reshape for 2D array
-    out = dt_model.predict(x_input.reshape(1, -1))
+    st.write(dt_model.predict(x_input.values.reshape(1, -1)))  # Use values and reshape for 2D array
+    out = dt_model.predict(x_input.values.reshape(1, -1))
 
     if out[0] == "Normal":
         st.header("0")
