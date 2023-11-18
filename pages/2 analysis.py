@@ -24,5 +24,5 @@ sd = st.number_input("กรุณาเลือกข้อมูล Sleep Dur
 qos = st.slider("กรุณาเลือกข้อมูล Quality of Sleep",0,10)
 
 pal = st.number_input("กรุณาเลือกข้อมูล Physical Activity Level")
-sl = st.slider("กรุณาเลือกข้อมูล Stress Level"0,10)
+sl = st.slider("กรุณาเลือกข้อมูล Stress Level",0,10)
 
