@@ -22,14 +22,8 @@ st.pyplot(fig)
 
 st.header("Negative ")
 
-
 pivot_table = df.pivot_table(index='BMI Category', columns='Sleep Disorder', aggfunc={'Sleep Disorder': 'count'})
 fig, ax = plt.subplots(figsize=(20, 10))
-plot = pivot_table.plot.pie(subplots=True, autopct='%1.1f%%', ax=ax, colors=['#C39BD3', '#D2B4DE', '#EBDEF0', '#F4ECF7'])
-
-# Remove background from pie chart
-for pie in plot:
-    pie.set_wedgeprops(width=0)  # Adjusted to set the wedgeprops directly
-
+pivot_table.plot.pie(subplots=True, autopct='%1.1f%%', ax=ax, colors=['#C39BD3', '#D2B4DE', '#EBDEF0', '#F4ECF7'])
 plt.axis('equal') 
 st.pyplot(fig)
