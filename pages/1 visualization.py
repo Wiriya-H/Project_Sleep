@@ -22,25 +22,7 @@ st.pyplot(fig)
 st.header("The relationship between (Age) and (Sleep Disorder)")
 
 grouped_data = df.groupby(['Sleep Disorder', 'Age']).size().reset_index(name='count')
-
-# Create a bar chart using Streamlit
 st.bar_chart(grouped_data.set_index('Age'))
-
-# Add lines using matplotlib
-fig, ax = plt.subplots()
-colors = {'Good': 'green', 'Poor': 'red', 'Average': 'blue'}  # Change colors as needed
-
-for sleep_disorder, data in grouped_data.groupby('Sleep Disorder'):
-    ax.plot(data['Age'], data['count'], label=sleep_disorder, color=colors.get(sleep_disorder, 'black'))
-
-# Set chart title
-st.title('The relationship between (age) and (Sleep Disorder)')
-
-# Set legend
-ax.legend()
-
-# Display the plot in Streamlit
-st.pyplot(fig)
 
 st.header("The relationship between (BMI) and (Sleep Disorder)")
 
