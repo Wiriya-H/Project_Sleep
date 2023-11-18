@@ -41,7 +41,7 @@ if st.button("ทำนายผล"):
 
 
     dt_model = DecisionTreeClassifier()
-    dt_model.fit(X, y)
+    dt_model.fit(x, y)
 
 
         #ข้อมูล input สำหรับทดลองจำแนกข้อมูล
