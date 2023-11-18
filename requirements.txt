@@ -9,3 +9,4 @@ wordcloud
 sklearn
 streamlit_lottie
 termcolor
+plotly
