@@ -14,6 +14,14 @@ y = df["Sleep Disorder"]
 
 # Encoding categorical variables if any
 le = LabelEncoder()
+
+# Print column names
+print("Column names in X:", X.columns)
+
+# Check unique values in 'Gender' column
+print("Unique values in 'Gender' column:", X['Gender'].unique())
+
+# Encode 'Gender' column
 X['Gender'] = le.fit_transform(X['Gender'])
 
 for cat_column in X.select_dtypes('object').columns:
