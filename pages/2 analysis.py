@@ -59,7 +59,6 @@ elif out[0]=="Sleep Apnea":
 else:
     st.image("./pic/iris1.jpg")  
     st.header("2")
-else :
-    st.button("ไม่ทำนายผล")
+st.button("ไม่ทำนายผล")
 
 
