@@ -18,7 +18,7 @@ st.markdown(html_1, unsafe_allow_html=True)
 st.markdown("")
 
 import pandas as pd
-dt=pd.read_csv('./data/Sleep_health_and_lifestyle_dataset.csv')
+dt = pd.read_csv('./data/Sleep_health_and_lifestyle_dataset.csv')
 st.write(dt.head(10))
 
 dt1 = dt['Sleep Duration'].sum()
