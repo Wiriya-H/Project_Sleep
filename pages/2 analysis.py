@@ -44,20 +44,22 @@ spwd = st.number_input("กรุณาเลือกข้อมูล sepal.w
 from sklearn.neighbors import KNeighborsClassifier
 import numpy as np
 
+
 if st.button("ทำนายผล"):
-    # ทำนาย
+   # ทำนาย
+   #dt = pd.read_csv("./data/iris.csv") 
 
-    x = df.drop("Sleep Disorder", axis=1)
-    y = df[["Sleep Disorder"]]
+   X = df.drop('Sleep Disorder', axis=1)
+   y = df["Sleep Disorder"]   
 
-    Knn_model = KNeighborsClassifier(n_neighbors=3)
-    Knn_model.fit(x, y)
+   Knn_model = KNeighborsClassifier(n_neighbors=3)
+   Knn_model.fit(X, y)
 
-    # ข้อมูล input สำหรับทดลองจำแนกข้อมูล
-    x_input = np.array([[ptlen, ptwd, splen, spwd]])
+    #ข้อมูล input สำหรับทดลองจำแนกข้อมูล
+   x_input = np.array([[ptlen, ptwd, splen, spwd]])
     # เอา input ไปทดสอบ
-    st.write(Knn_model.predict(x_input))
-    out = Knn_model.predict(x_input)
+   st.write(Knn_model.predict(x_input))
+   out=Knn_model.predict(x_input)
 
     if out[0] == "Normal":
         # st.image("./pic/iris.jpg")
