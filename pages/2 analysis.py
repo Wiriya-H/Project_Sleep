@@ -42,7 +42,7 @@ if st.button("ทำนายผล"):
     dt_model.fit(x, y)
 
     # ข้อมูล input สำหรับทดลองจำแนกข้อมูล
-    x_input = pd.DataFrame([[sd, qos, pal, sl, 0, 1, 0]])  # Adjust the feature values and one-hot-encoded columns
+    x_input = pd.DataFrame([[sd, qos, pal, sl]])  # Adjust the feature values and one-hot-encoded columns
     # เอา input ไปทดสอบ
     st.write(dt_model.predict(x_input))
     out = dt_model.predict(x_input)
