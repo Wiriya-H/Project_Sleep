@@ -28,7 +28,7 @@ pivot_table.plot.pie(subplots=True, autopct='%1.1f%%', ax=ax, colors=['#57b199',
 plt.axis('equal') 
 st.pyplot(fig)
 
-st.header("---")
+st.header("The relationship between (sex) and (Sleep Disorder)")
 grouped_data = df.groupby(['Sleep Disorder', 'Gender']).size().reset_index(name='count')
 
 # Create a new DataFrame with Sleep Disorder and Gender as index, and count as values
@@ -38,7 +38,6 @@ pivot_table = pd.pivot_table(grouped_data, values='count', index='Sleep Disorder
 fig, ax = plt.subplots(figsize=(15, 7))
 colors = ['#57b199', '#7fc15a', '#ffa53b']
 pivot_table.plot.pie(subplots=True, autopct='%1.1f%%', ax=ax, colors=colors)
-plt.title('The relationship between (sex) and (Sleep Disorder)')
 plt.axis('equal')
 
 # Display the plot in Streamlit
