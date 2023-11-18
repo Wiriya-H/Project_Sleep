@@ -1,5 +1,4 @@
 import streamlit as st
-
 html_1 = """
 <div style="background-color:#0E2954;padding:15px;border-radius:15px 15px 15px 15px;border-style:'solid';border-color:black">
 <center><h5>การทำนายข้อมูลดอกไม้เบื้องต้น</h5></center>
@@ -58,12 +57,13 @@ if st.button("ทำนายผล"):
     # เอา input ไปทดสอบ
    st.write(Knn_model.predict(x_input))
    out=Knn_model.predict(x_input)
-if out[0] == "Normal":
-    st.header("Normal")
-    st.write("AI: ผลการทำนายคือปกติ")
-elif out[0] == "Sleep Apnea":
-    st.header("Sleep Apnea")
-    st.write("AI: ผลการทำนายคือ Sleep Apnea")
-else:
-    st.header("Insomnia")
-    st.write("AI: ผลการทำนายคือ Insomnia")
+
+   if out[0]=="Normal":
+      st.header("Normal")
+   elif out[0]=="Sleep Apnea":
+      st.header("Sleep Apnea")
+   else:
+      st.header("Insomnia")
+   st.button("ไม่ทำนายผล")
+else :
+    st.button("ไม่ทำนายผล")
