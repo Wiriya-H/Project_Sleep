@@ -29,8 +29,12 @@ st.pyplot(fig)
 
 # Optionally, you can add some space between the pie charts
 st.text("")  # Add an empty line
-st.header("Negative ")
-#df.pivot_table(index='BMI Category',columns='Sleep Disorder',aggfunc={'Sleep Disorder':'count'}).plot.pie()
 
-plt.axis('equal')
-plt.show()
+st.header("Negative ")
+pivot_table = df.pivot_table(index='BMI Category', columns='Sleep Disorder', aggfunc={'Sleep Disorder': 'count'})
+fig, ax = plt.subplots(figsize=(20, 10))
+pivot_table.plot.pie(subplots=True, autopct='%1.1f%%', ax=ax, colors=['#C39BD3', '#D2B4DE', '#EBDEF0', '#F4ECF7'])
+plt.axis('equal')  # Equal aspect ratio ensures that the pie chart is circular
+
+# Display the figure using st.pyplot()
+st.pyplot(fig)
