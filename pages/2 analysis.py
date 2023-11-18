@@ -60,10 +60,13 @@ if st.button("ทำนายผล"):
 
    if out[0]=="Normal":
       st.header("Normal")
+      st.write("AI: ผลการทำนายคือปกติ")
    elif out[0]=="Sleep Apnea":
       st.header("Sleep Apnea")
+      st.write("AI: ผลการทำนายคือ Sleep Apnea")
    else:
       st.header("Insomnia")
+      st.write("AI: ผลการทำนายคือ Insomnia")
    st.button("ไม่ทำนายผล")
 else :
     st.button("ไม่ทำนายผล")
