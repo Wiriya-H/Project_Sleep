@@ -46,7 +46,6 @@ import numpy as np
 
 if st.button("ทำนายผล"):
    # ทำนาย
-   #dt = pd.read_csv("./data/iris.csv") 
 
    from sklearn.preprocessing import LabelEncoder
         le = LabelEncoder()
