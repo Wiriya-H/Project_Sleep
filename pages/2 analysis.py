@@ -1,59 +1,82 @@
 import streamlit as st
-import numpy as np
+
+st.image('./pic/1.jpg')
+col1,col2 = st.columns(2)
+
+with col1:
+    st.header('วิริยะ เหมมาลา')
+with col2:
+    st.subheader('สาขาวิทยาการข้อมูล')
+    st.text('คณะวิทยาศาสตร์และเทคโนโลยี')
+
+html_1 = """
+<div style="background-color:#0E2954;padding:15px;border-radius:15px 15px 15px 15px;border-style:'solid';border-color:black">
+<center><h5>การทำนายข้อมูลดอกไม้เบื้องต้น</h5></center>
+</div>
+"""
+st.markdown(html_1, unsafe_allow_html=True)
+st.markdown("")
+
 import pandas as pd
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.preprocessing import LabelEncoder
+dt=pd.read_csv('./data/iris.csv')
+st.write(dt.head(10))
 
-# Assume 'df' is your DataFrame
-df = pd.read_csv('./data/Sleep_health_and_lifestyle_dataset.csv')
+dt1 = dt['petal.length'].sum()
+dt2 = dt['petal.width'].sum()
+dt3 = dt['sepal.length'].sum()
+dt4 = dt['sepal.width'].sum()
 
-# Feature selection
-selected_features = ["Sleep Duration", "Quality of Sleep", "Physical Activity Level", "Stress Level"]
-X = df[selected_features]
-y = df["Sleep Disorder"]
+dx = [dt1, dt2, dt3, dt4]
+dx2 = pd.DataFrame(dx, index=["d1", "d2", "d3", "d4"])
 
-# Encoding categorical variables if any
-le = LabelEncoder()
+if st.button("show bar chart"):
+    st.bar_chart(dx2)
+    st.button("Not show bar chart")
+else :
+    st.button("Not show bar chart") 
 
-# Print column names
-print("Column names in X:", X.columns)
+html_2 = """
+<div style="background-color:#FFBF00;padding:15px;border-radius:15px 15px 15px 15px;border-style:'solid';border-color:black">
+<center><h5>การทำนายคลาสดอกไม้</h5></center>
+</div>
+"""
+st.markdown(html_2, unsafe_allow_html=True)
+st.markdown("")   
 
-# Check unique values in 'Gender' column
-print("Unique values in 'Gender' column:", X['Gender'].unique())
 
-# Encode 'Gender' column
-X['Gender'] = le.fit_transform(X['Gender'])
+ptlen = st.slider("กรุณาเลือกข้อมูล petal.length",0,10)
+ptwd = st.slider("กรุณาเลือกข้อมูล petal.width",0,10)
 
-for cat_column in X.select_dtypes('object').columns:
-    X[cat_column] = le.fit_transform(X[cat_column])
+splen = st.number_input("กรุณาเลือกข้อมูล sepal.length")
+spwd = st.number_input("กรุณาเลือกข้อมูล sepal.width")
 
-# Create and fit the model
-dt_model = DecisionTreeClassifier()
-dt_model.fit(X, y)
+from sklearn.neighbors import KNeighborsClassifier
+import numpy as np
 
-# Streamlit UI
-st.title("Sleep Disorder Prediction")
+if st.button("ทำนายผล"):
+   # ทำนาย
 
-# User input for prediction
-sd = st.number_input("Sleep Duration", 0, 10)
-qos = st.slider("Quality of Sleep", 0, 10)
-pal = st.number_input("Physical Activity Level")
-sl = st.slider("Stress Level", 0, 10)
+   X = dt.drop('variety', axis=1)
+   y = dt.variety   
 
-if st.button("Predict"):
-    # Prepare the input data for prediction
-    x_input = np.array([[sd, qos, pal, sl]])
+   Knn_model = KNeighborsClassifier(n_neighbors=3)
+   Knn_model.fit(X, y)
 
-    # Make prediction
-    prediction = dt_model.predict(x_input)
+    #ข้อมูล input สำหรับทดลองจำแนกข้อมูล
+   x_input = np.array([[ptlen, ptwd, splen, spwd]])
+    # เอา input ไปทดสอบ
+   st.write(Knn_model.predict(x_input))
+   out=Knn_model.predict(x_input)
 
-    # Display the prediction result
-    if prediction[0] == "Normal":
-        st.header("Normal")
-    elif prediction[0] == "Sleep Apnea":
-        st.header("Sleep Apnea")
-    else:
-        st.header("Other Sleep Disorder")
-
-# Button for not making a prediction
-st.button("Do Not Predict")
+   if out[0]=="Setosa":
+      st.image("./pic/iris.jpg")
+      st.header("Setosa")
+   elif out[0]=="Versicolor":
+      st.image("./pic/iris2.jpg")
+      st.header("Versicolor")
+   else:
+      st.image("./pic/iris1.jpg")  
+      st.header("Verginiga")
+   st.button("ไม่ทำนายผล")
+else :
+    st.button("ไม่ทำนายผล")
