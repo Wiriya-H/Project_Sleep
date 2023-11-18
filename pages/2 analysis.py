@@ -13,9 +13,8 @@ df4 = df['Stress Level'].sum()
 dx = [df1, df2, df3, df4]
 dx2 = pd.DataFrame(dx, index=["Sleep Duration", "Quality of Sleep", "Physical Activity Level", "Stress Level"])
 
-# Checkbox to show/hide the bar chart
-show_chart = st.checkbox("Show bar chart")
-
-# Display the bar chart if the checkbox is checked
-if show_chart:
+if st.button("show bar chart"):
     st.bar_chart(dx2)
+    st.button("Not show bar chart")
+else :
+    st.button("Not show bar chart") 
