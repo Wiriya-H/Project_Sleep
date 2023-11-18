@@ -8,7 +8,7 @@ df = pd.read_csv('./data/Sleep_health_and_lifestyle_dataset.csv')
 
 st.table(df.head())
 
-st.header("The relationship between (sex) and (Sleep Disorder)").style(font_size=20)
+st.header("The relationship between (sex) and (Sleep Disorder)")
 
 grouped_data = df.groupby(['Sleep Disorder', 'Gender']).size().reset_index(name='count')
 pivot_table = pd.pivot_table(grouped_data, values='count', index='Sleep Disorder', columns='Gender', fill_value=0)
