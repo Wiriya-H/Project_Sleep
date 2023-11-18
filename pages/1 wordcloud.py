@@ -17,14 +17,15 @@ reshaped_data = grouped_data.unstack()
 custom_colors = ['#C39BD3', '#D2B4DE', '#EBDEF0', '#F4ECF7']
 
 # Create a Streamlit figure
-fig, axes = plt.subplots(nrows=1, ncols=len(reshaped_data), figsize=(15, 5))
+fig, axes = plt.subplots(nrows=len(reshaped_data), ncols=1, figsize=(5, 10))
 
-for i, (sleep_disorder, counts) in enumerate(reshaped_data.iterrows()):
+# วนลูปทุกคอลัมน์ (Gender)
+for i, gender in enumerate(reshaped_data.columns):
     ax = axes[i]
-    ax.pie(counts, labels=counts.index, autopct='%1.1f%%', startangle=90, colors=custom_colors)
-    ax.set_title(f'Sleep Disorder {sleep_disorder}')
+    ax.pie(reshaped_data[gender], labels=reshaped_data.index, autopct='%1.1f%%', startangle=90, colors=custom_colors)
+    ax.set_title(f'Gender {gender}')
 
-# Display the figure using st.pyplot()
+# แสดงภาพใน Streamlit โดยใช้ st.pyplot()
 st.pyplot(fig)
 
 # Optionally, you can add some space between the pie charts
