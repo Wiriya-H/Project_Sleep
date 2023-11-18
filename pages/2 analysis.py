@@ -40,14 +40,14 @@ for cat_columns in x.select_dtypes('object').columns.to_list():
 
 y = df[["SleepDisorder"]]
 
-   Knn_model = KNeighborsClassifier(n_neighbors=3)
-   Knn_model.fit(X, y)
+    dt_model = DecisionTreeClassifier()
+    dt_model.fit(X, y)
 
     #ข้อมูล input สำหรับทดลองจำแนกข้อมูล
    x_input = np.array([[sd, qos, pal, sl]])
     # เอา input ไปทดสอบ
-   st.write(Knn_model.predict(x_input))
-   out=Knn_model.predict(x_input)
+   st.write(dt_model.predict(x_input))
+   out=dt_model.predict(x_input)
 
    if out[0]=="Normal":
       st.image("./pic/iris.jpg")
@@ -61,3 +61,5 @@ y = df[["SleepDisorder"]]
    st.button("ไม่ทำนายผล")
 else :
     st.button("ไม่ทำนายผล")
+
+
