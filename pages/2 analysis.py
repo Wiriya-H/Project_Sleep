@@ -37,7 +37,7 @@ if st.button("ทำนายผล"):
         x = x.drop(cat_columns, axis=1)
 
     # Create a DataFrame for prediction with the same structure as the training data
-    x_input = pd.DataFrame([[sd, qos, pal, sl, 0, 1, 0]])  # Adjust the one-hot-encoded columns
+    x_input = pd.DataFrame([[sd, qos, pal, sl, 0, 1, 0]])  # Adjust one-hot-encoded columns
 
     y = df[["Sleep Disorder"]]
 
@@ -45,8 +45,8 @@ if st.button("ทำนายผล"):
     dt_model.fit(x, y)
 
     # Predict using the input data
-    st.write(dt_model.predict(x_input))
-    out = dt_model.predict(x_input)
+    st.write(dt_model.predict(x_input.reshape(1, -1)))  # Use reshape for 2D array
+    out = dt_model.predict(x_input.reshape(1, -1))
 
     if out[0] == "Normal":
         st.header("0")
