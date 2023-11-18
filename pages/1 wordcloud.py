@@ -32,7 +32,7 @@ for i, (sleep_disorder, counts) in enumerate(reshaped_data.iterrows()):
     ax.pie(counts, labels=counts.index, autopct='%1.1f%%', startangle=90, colors=['skyblue', 'lightcoral'])
     ax.set_title(f'Sleep Disorder {sleep_disorder}')
 
-print(plt.show())
+st.plt.show()
 
 
 st.header("Negative ")
