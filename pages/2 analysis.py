@@ -1,6 +1,7 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
+from sklearn.preprocessing import LabelEncoder
 from sklearn.tree import DecisionTreeClassifier
 
 df = pd.read_csv('./data/Sleep_health_and_lifestyle_dataset.csv')
@@ -29,8 +30,15 @@ if st.button("ทำนายผล"):
        # ทำนาย
    #dt = pd.read_csv("./data/iris.csv") 
 
-   X = dt.drop('SleepDisorder', axis=1)
-   y = dt.SleepDisorder
+    x= df.drop("SleepDisorder",axis=1)
+    x['Gender'] = le.fit_transform(x['Gender'])
+for cat_columns in x.select_dtypes('object').columns.to_list():
+    one_hot_encoded = pd.get_dummies(x[cat_columns], prefix='is_')
+    x = pd.concat([x, one_hot_encoded], axis=1)
+    x = x.drop(cat_columns, axis=1)
+
+
+y = df[["SleepDisorder"]]
 
    Knn_model = KNeighborsClassifier(n_neighbors=3)
    Knn_model.fit(X, y)
