@@ -19,7 +19,7 @@ reshaped_data = grouped_data.unstack()
 custom_colors = ['#C39BD3', '#D2B4DE', '#EBDEF0', '#F4ECF7']
 
 # Create a Streamlit figure
-fig, axes = plt.subplots(nrows=1, ncols=len(reshaped_data), figsize=(15, 5))
+fig, axes = plt.subplots(nrows=1, ncols=len(reshaped_data), figsize=(36, 12))
 
 for i, (sleep_disorder, counts) in enumerate(reshaped_data.iterrows()):
     ax = axes[i]
