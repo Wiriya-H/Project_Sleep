@@ -27,9 +27,7 @@ pal = st.number_input("กรุณาเลือกข้อมูล Physical
 sl = st.slider("กรุณาเลือกข้อมูล Stress Level",0,10)
 
 if st.button("ทำนายผล"):
-       # ทำนาย
-   #dt = pd.read_csv("./data/iris.csv") 
-
+    
 le = LabelEncoder()
 x= df.drop("Sleep Disorder",axis=1)
 x['Gender'] = le.fit_transform(x['Gender'])
