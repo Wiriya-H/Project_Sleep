@@ -50,31 +50,30 @@ ptwd = st.slider("กรุณาเลือกข้อมูล petal.width",
 splen = st.number_input("กรุณาเลือกข้อมูล sepal.length")
 spwd = st.number_input("กรุณาเลือกข้อมูล sepal.width")
 
+# Assume 'dt' is the DataFrame
+X = dt.drop('Sleep Disorder', axis=1)
+y = dt["Sleep Disorder"]
+
 from sklearn.neighbors import KNeighborsClassifier
-import numpy as np
 
 if st.button("ทำนายผล"):
-   # ทำนาย
-   #dt = pd.read_csv("./data/iris.csv") 
+    # Create and fit the model
+    Knn_model = KNeighborsClassifier(n_neighbors=3)
+    Knn_model.fit(X, y)
 
-   X = dt.drop('Sleep Disorder', axis=1)
-   y = dt["Sleep Disorder"]
+    # Get input values
+    x_input = np.array([[ptlen, ptwd, splen, spwd]])
 
-   Knn_model = KNeighborsClassifier(n_neighbors=3)
-   Knn_model.fit(X, y)
+    # Predict using the input data
+    st.write(Knn_model.predict(x_input))
+    out = Knn_model.predict(x_input)
 
-    #ข้อมูล input สำหรับทดลองจำแนกข้อมูล
-   x_input = np.array([[ptlen, ptwd, splen, spwd]])
-    # เอา input ไปทดสอบ
-   st.write(Knn_model.predict(x_input))
-   out=Knn_model.predict(x_input)
+    # Display the result
+    if out[0] == "Normal":
+        st.header("Normal")
+    elif out[0] == "Sleep Apnea":
+        st.header("Sleep Apnea")
+    else:
+        st.header("Verginiga")
 
-   if out[0]=="Normal":
-      st.header("Normal")
-   elif out[0]=="Sleep Apnea":
-      st.header("Sleep Apnea")
-   else:
-      st.header("Verginiga")
-   st.button("ไม่ทำนายผล")
-else :
-    st.button("ไม่ทำนายผล")
+st.button("ไม่ทำนายผล")
