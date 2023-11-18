@@ -45,36 +45,36 @@ from sklearn.neighbors import KNeighborsClassifier
 import numpy as np
 
 if st.button("ทำนายผล"):
-   # ทำนาย
-
+    # ทำนาย
     from sklearn.preprocessing import LabelEncoder
     le = LabelEncoder()
-    x= df.drop("Sleep Disorder",axis=1)
+    x = df.drop("Sleep Disorder", axis=1)
     x['Gender'] = le.fit_transform(x['Gender'])
+    
     for cat_columns in x.select_dtypes('object').columns.to_list():
         one_hot_encoded = pd.get_dummies(x[cat_columns], prefix='is_')
         x = pd.concat([x, one_hot_encoded], axis=1)
         x = x.drop(cat_columns, axis=1)
-        
+    
     y = df[["Sleep Disorder"]]
 
-   Knn_model = KNeighborsClassifier(n_neighbors=3)
-   Knn_model.fit(x, y)
+    Knn_model = KNeighborsClassifier(n_neighbors=3)
+    Knn_model.fit(x, y)
 
-    #ข้อมูล input สำหรับทดลองจำแนกข้อมูล
-   x_input = np.array([[ptlen, ptwd, splen, spwd]])
+    # ข้อมูล input สำหรับทดลองจำแนกข้อมูล
+    x_input = np.array([[ptlen, ptwd, splen, spwd]])
     # เอา input ไปทดสอบ
-   st.write(Knn_model.predict(x_input))
-   out=Knn_model.predict(x_input)
+    st.write(Knn_model.predict(x_input))
+    out = Knn_model.predict(x_input)
 
-   if out[0]=="Normal":
-      #st.image("./pic/iris.jpg")
-      st.header("Normal")
-   elif out[0]=="Sleep Apnea":
-      #st.image("./pic/iris2.jpg")
-      st.header("Sleep Apnea")
-   else:
-      st.header("Verginiga")
-   st.button("ไม่ทำนายผล")
-else :
+    if out[0] == "Normal":
+        # st.image("./pic/iris.jpg")
+        st.header("Normal")
+    elif out[0] == "Sleep Apnea":
+        # st.image("./pic/iris2.jpg")
+        st.header("Sleep Apnea")
+    else:
+        st.header("Verginiga")
+    st.button("ไม่ทำนายผล")
+else:
     st.button("ไม่ทำนายผล")
