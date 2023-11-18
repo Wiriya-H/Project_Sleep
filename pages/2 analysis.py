@@ -21,46 +21,46 @@ else :
     st.button("Not show bar chart") 
     
     
-sd = st.number_input("กรุณาเลือกข้อมูล Sleep Duration",0,10)
-qos = st.slider("กรุณาเลือกข้อมูล Quality of Sleep",0,10)
-pal = st.number_input("กรุณาเลือกข้อมูล Physical Activity Level")
-sl = st.slider("กรุณาเลือกข้อมูล Stress Level",0,10)
+# Label encode the 'Gender' column
+le = LabelEncoder()
+df['Gender'] = le.fit_transform(df['Gender'])
 
-if st.button("ทำนายผล"):
-       # ทำนาย
-   #dt = pd.read_csv("./data/iris.csv") 
+# One-hot encode categorical columns
+for cat_column in df.select_dtypes('object').columns.to_list():
+    df = pd.get_dummies(df, columns=[cat_column], prefix=[f'is_{cat_column}'])
 
-    x= df.drop("SleepDisorder",axis=1)
-    x['Gender'] = le.fit_transform(x['Gender'])
-for cat_columns in x.select_dtypes('object').columns.to_list():
-    one_hot_encoded = pd.get_dummies(x[cat_columns], prefix='is_')
-    x = pd.concat([x, one_hot_encoded], axis=1)
-    x = x.drop(cat_columns, axis=1)
-
-
+# Select features (X) and target variable (y)
+X = df.drop("SleepDisorder", axis=1)
 y = df[["SleepDisorder"]]
 
+# Decision Tree Classifier
 dt_model = DecisionTreeClassifier()
 dt_model.fit(X, y)
 
+# Input for prediction
+sd = st.number_input("กรุณาเลือกข้อมูล Sleep Duration")
+qos = st.slider("กรุณาเลือกข้อมูล Quality of Sleep", 0, 10)
+pal = st.number_input("กรุณาเลือกข้อมูล Physical Activity Level")
+sl = st.slider("กรุณาเลือกข้อมูล Stress Level", 0, 10)
 
-    #ข้อมูล input สำหรับทดลองจำแนกข้อมูล
-   x_input = np.array([[sd, qos, pal, sl]])
-    # เอา input ไปทดสอบ
-   st.write(dt_model.predict(x_input))
-   out=dt_model.predict(x_input)
+if st.button("ทำนายผล"):
+    # Input data for prediction
+    x_input = np.array([[sd, qos, pal, sl]])
 
-   if out[0]=="Normal":
-      st.image("./pic/iris.jpg")
-      st.header("0")
-   elif out[0]=="Sleep Apnea":
-      st.image("./pic/iris2.jpg")
-      st.header("1")
-   else:
-      st.image("./pic/iris1.jpg")  
-      st.header("2")
-   st.button("ไม่ทำนายผล")
-else :
+    # Prediction
+    st.write(dt_model.predict(x_input))
+    out = dt_model.predict(x_input)
+
+    if out[0] == "Normal":
+        st.image("./pic/iris.jpg")
+        st.header("0")
+    elif out[0] == "Sleep Apnea":
+        st.image("./pic/iris2.jpg")
+        st.header("1")
+    else:
+        st.image("./pic/iris1.jpg")  
+        st.header("2")
+
     st.button("ไม่ทำนายผล")
-
-
+else:
+    st.button("ไม่ทำนายผล")
