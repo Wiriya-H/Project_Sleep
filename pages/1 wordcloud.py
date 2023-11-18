@@ -23,7 +23,7 @@ st.pyplot(fig)
 st.header("Negative ")
 
 pivot_table = df.pivot_table(index='BMI Category', columns='Sleep Disorder', aggfunc={'Sleep Disorder': 'count'})
-fig, ax = plt.subplots(figsize=(18, 9))
+fig, ax = plt.subplots(figsize=(20, 10))
 pivot_table.plot.pie(subplots=True, autopct='%1.1f%%', ax=ax, colors=['#C39BD3', '#D2B4DE', '#EBDEF0', '#F4ECF7'])
 plt.axis('equal') 
 st.pyplot(fig)
