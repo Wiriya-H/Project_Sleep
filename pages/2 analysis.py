@@ -39,7 +39,7 @@ if st.button("ทำนายผล"):
     # Create a DataFrame for prediction with the same structure as the training data
     x_input = pd.DataFrame([[sd, qos, pal, sl, 0, 1, 0]])  # Adjust one-hot-encoded columns
 
-    y = df[["Sleep Disorder"]]
+    y = df["Sleep Disorder"]
 
     dt_model = DecisionTreeClassifier()
     dt_model.fit(x, y)
@@ -56,3 +56,4 @@ if st.button("ทำนายผล"):
         st.header("2")
 
 st.button("ไม่ทำนายผล")
+
