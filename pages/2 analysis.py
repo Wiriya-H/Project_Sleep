@@ -26,8 +26,9 @@ qos = st.slider("กรุณาเลือกข้อมูล Quality of Sle
 pal = st.number_input("กรุณาเลือกข้อมูล Physical Activity Level")
 sl = st.slider("กรุณาเลือกข้อมูล Stress Level",0,10)
 
-if st.button("ทำนายผล"):
+# ...
 
+if st.button("ทำนายผล"):
     le = LabelEncoder()
     x = df.drop("Sleep Disorder", axis=1)
     x['Gender'] = le.fit_transform(x['Gender'])
@@ -39,26 +40,21 @@ if st.button("ทำนายผล"):
 
     y = df[["Sleep Disorder"]]
 
-
     dt_model = DecisionTreeClassifier()
     dt_model.fit(x, y)
 
-
-        #ข้อมูล input สำหรับทดลองจำแนกข้อมูล
-    x_input = np.array([sd, qos, pal, sl])
-        # เอา input ไปทดสอบ
+    # ข้อมูล input สำหรับทดลองจำแนกข้อมูล
+    x_input = np.array([[sd, qos, pal, sl]])  # Wrap the input in a 2D array
+    # เอา input ไปทดสอบ
     st.write(dt_model.predict(x_input))
-    out=dt_model.predict(x_input)
+    out = dt_model.predict(x_input)
 
-    if out[0]=="Normal":
-        #st.image("./pic/iris.jpg")
+    if out[0] == "Normal":
         st.header("0")
-    elif out[0]=="Sleep Apnea":
-        #st.image("./pic/iris2.jpg")
+    elif out[0] == "Sleep Apnea":
         st.header("1")
     else:
-        #st.image("./pic/iris1.jpg")  
         st.header("2")
+
 st.button("ไม่ทำนายผล")
- 
 
