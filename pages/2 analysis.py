@@ -32,19 +32,19 @@ if st.button("ทำนายผล"):
     x['Gender'] = le.fit_transform(x['Gender'])
 
     for cat_columns in x.select_dtypes('object').columns.to_list():
-        one_hot_encoded = pd.get_dummies(x[cat_columns], prefix='is_')
+        one_hot_encoded = pd.get_dummies(x[cat_columns], prefix=f'is_{cat_columns}')
         x = pd.concat([x, one_hot_encoded], axis=1)
         x = x.drop(cat_columns, axis=1)
 
+    # Create a DataFrame for prediction with the same structure as the training data
+    x_input = pd.DataFrame([[sd, qos, pal, sl, 0, 1, 0]])  # Adjust the one-hot-encoded columns
 
     y = df[["Sleep Disorder"]]
 
     dt_model = DecisionTreeClassifier()
     dt_model.fit(x, y)
 
-    # ข้อมูล input สำหรับทดลองจำแนกข้อมูล
-    x_input = pd.DataFrame([[sd, qos, pal, sl]])  # Adjust the feature values and one-hot-encoded columns
-    # เอา input ไปทดสอบ
+    # Predict using the input data
     st.write(dt_model.predict(x_input))
     out = dt_model.predict(x_input)
 
