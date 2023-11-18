@@ -24,12 +24,12 @@ else :
 
 if st.button("ทำนายผล"):
     # ทำนาย
-    X = dt.drop('Sleep Disorder', axis=1)
+    x = dt.drop('Sleep Disorder', axis=1)
     y = df[["Sleep Disorder"]]
 
     # Use Decision Tree Classifier
     dt_model = DecisionTreeClassifier()
-    dt_model.fit(X, y)
+    dt_model.fit(x, y)
 
     # ข้อมูล input สำหรับทดลองจำแนกข้อมูล
     sd = st.number_input("กรุณาเลือกข้อมูล Sleep Duration", 0, 10)
