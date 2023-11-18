@@ -1,3 +1,4 @@
+import streamlit as st
 
 html_1 = """
 <div style="background-color:#0E2954;padding:15px;border-radius:15px 15px 15px 15px;border-style:'solid';border-color:black">
