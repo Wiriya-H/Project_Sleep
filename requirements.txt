@@ -10,5 +10,4 @@ sklearn
 streamlit_lottie
 termcolor
 plotly
-sklearn.preprocessing
 LabelEncoder

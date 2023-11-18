@@ -49,13 +49,13 @@ st.write(dt_model.predict(x_input))
 out=dt_model.predict(x_input)
 
 if out[0]=="Normal":
-    st.image("./pic/iris.jpg")
+    #st.image("./pic/iris.jpg")
     st.header("0")
 elif out[0]=="Sleep Apnea":
-    st.image("./pic/iris2.jpg")
+    #st.image("./pic/iris2.jpg")
     st.header("1")
 else:
-    st.image("./pic/iris1.jpg")  
+    #st.image("./pic/iris1.jpg")  
     st.header("2")
 st.button("ไม่ทำนายผล")
 
