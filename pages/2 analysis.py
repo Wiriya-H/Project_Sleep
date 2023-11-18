@@ -12,7 +12,7 @@ df3 = df['Physical Activity Level'].sum()
 df4 = df['Stress Level'].sum()
 dx = [df1, df2, df3, df4]
 dx2 = pd.DataFrame(dx, index=["d1", "d2", "d3", "d4"])
- st.bar_chart(dx2)
+
 if st.button("show bar chart"):
     st.bar_chart(dx2)
     st.button("Not show bar chart")
