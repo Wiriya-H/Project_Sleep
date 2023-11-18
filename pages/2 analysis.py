@@ -9,15 +9,15 @@ st.markdown(html_1, unsafe_allow_html=True)
 st.markdown("")
 
 import pandas as pd
-dt=pd.read_csv('./data/Sleep_health_and_lifestyle_dataset.csv')
-st.write(dt.head(10))
+df=pd.read_csv('./data/Sleep_health_and_lifestyle_dataset.csv')
+st.write(df.head(10))
 
-dt1 = dt['Sleep Duration'].sum()
-dt2 = dt['Quality of Sleep'].sum()
-dt3 = dt['Physical Activity Level'].sum()
-dt4 = dt['Stress Level'].sum()
+df1 = df['Sleep Duration'].sum()
+df2 = df['Quality of Sleep'].sum()
+df3 = df['Physical Activity Level'].sum()
+df4 = df['Stress Level'].sum()
 
-dx = [dt1, dt2, dt3, dt4]
+dx = [df1, df2, df3, df4]
 dx2 = pd.DataFrame(dx, index=["d1", "d2", "d3", "d4"])
 
 if st.button("show bar chart"):
@@ -36,10 +36,10 @@ st.markdown("")
 
 
 ptlen = st.slider("กรุณาเลือกข้อมูล petal.length",0,10)
-ptwd = st.slider("กรุณาเลือกข้อมูล petal.width",0,10)
+ptwd = st.slider("กรุณาเลือกข้อมูล petal.widfh",0,10)
 
 splen = st.number_input("กรุณาเลือกข้อมูล sepal.length")
-spwd = st.number_input("กรุณาเลือกข้อมูล sepal.width")
+spwd = st.number_input("กรุณาเลือกข้อมูล sepal.widfh")
 
 from sklearn.neighbors import KNeighborsClassifier
 import numpy as np
@@ -51,7 +51,7 @@ if st.button("ทำนายผล"):
     x = df.drop("Sleep Disorder", axis=1)
     x['Gender'] = le.fit_transform(x['Gender'])
     
-    for cat_columns in x.select_dtypes('object').columns.to_list():
+    for cat_columns in x.select_dfypes('object').columns.to_list():
         one_hot_encoded = pd.get_dummies(x[cat_columns], prefix='is_')
         x = pd.concat([x, one_hot_encoded], axis=1)
         x = x.drop(cat_columns, axis=1)
