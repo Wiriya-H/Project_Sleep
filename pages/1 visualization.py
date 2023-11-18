@@ -25,10 +25,19 @@ grouped_data = df.groupby(['Sleep Disorder', 'Age']).size().reset_index(name='co
 st.bar_chart(grouped_data.set_index('Age'))
 
 st.header("The relationship between (BMI) and (Sleep Disorder)")
-
 pivot_table = df.pivot_table(index='BMI Category', columns='Sleep Disorder', aggfunc={'Sleep Disorder': 'count'})
-fig, ax = plt.subplots(figsize=(20, 10))
-pivot_table.plot.pie(subplots=True, autopct='%1.1f%%', ax=ax, colors=['#57b199', '#7fc15a', '#ffa53b', '#e33d25'])
-plt.axis('equal') 
-st.pyplot(fig)
 
+# Create a vertical bar chart using Matplotlib
+fig, ax = plt.subplots(figsize=(20, 10))
+pivot_table.plot.bar(ax=ax, color=['#57b199', '#7fc15a', '#ffa53b', '#e33d25'], stacked=True)
+
+# Set chart title and labels
+plt.title('Sleep Disorder distribution across BMI Categories')
+plt.xlabel('BMI Category')
+plt.ylabel('Count')
+
+# Set legend
+plt.legend(title='Sleep Disorder')
+
+# Display the plot in Streamlit
+st.pyplot(fig)
