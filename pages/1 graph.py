@@ -36,7 +36,7 @@ pivot_table = pd.pivot_table(grouped_data, values='count', index='Sleep Disorder
 
 # Plot the pie chart
 fig, ax = plt.subplots(figsize=(15, 7))
-colors = ['#4A235A', 'pink', '#4A235A', 'pink', '#4A235A', 'pink']
+colors = ['#4A235A', 'pink', '#4A235A']
 pivot_table.plot.pie(subplots=True, autopct='%1.1f%%', ax=ax, colors=colors)
 plt.title('The relationship between (sex) and (Sleep Disorder)')
 plt.axis('equal')
