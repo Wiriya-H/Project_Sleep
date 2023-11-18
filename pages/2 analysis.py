@@ -60,5 +60,5 @@ if st.button("ทำนายผล"):
         #st.image("./pic/iris1.jpg")  
         st.header("2")
 st.button("ไม่ทำนายผล")
-
+ 
 
