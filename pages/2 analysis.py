@@ -1,6 +1,7 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
+from sklearn.preprocessing import LabelEncoder
 from sklearn.tree import DecisionTreeClassifier
 
 df = pd.read_csv('./data/Sleep_health_and_lifestyle_dataset.csv')
@@ -26,8 +27,6 @@ pal = st.number_input("กรุณาเลือกข้อมูล Physical
 sl = st.slider("กรุณาเลือกข้อมูล Stress Level",0,10)
 
 if st.button("ทำนายผล"):
-    
-from sklearn.preprocessing import LabelEncoder
 
 le = LabelEncoder()
 x = df.drop("Sleep Disorder", axis=1)
