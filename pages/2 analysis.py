@@ -40,8 +40,9 @@ for cat_columns in x.select_dtypes('object').columns.to_list():
 
 y = df[["SleepDisorder"]]
 
-    dt_model = DecisionTreeClassifier()
-    dt_model.fit(X, y)
+dt_model = DecisionTreeClassifier()
+dt_model.fit(X, y)
+
 
     #ข้อมูล input สำหรับทดลองจำแนกข้อมูล
    x_input = np.array([[sd, qos, pal, sl]])
