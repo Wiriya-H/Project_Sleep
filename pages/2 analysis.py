@@ -28,16 +28,20 @@ sl = st.slider("กรุณาเลือกข้อมูล Stress Level",0
 
 if st.button("ทำนายผล"):
     
+from sklearn.preprocessing import LabelEncoder
+import pandas as pd
+
 le = LabelEncoder()
-x= df.drop("Sleep Disorder",axis=1)
+x = df.drop("Sleep Disorder", axis=1)
 x['Gender'] = le.fit_transform(x['Gender'])
+
 for cat_columns in x.select_dtypes('object').columns.to_list():
     one_hot_encoded = pd.get_dummies(x[cat_columns], prefix='is_')
     x = pd.concat([x, one_hot_encoded], axis=1)
     x = x.drop(cat_columns, axis=1)
 
-
 y = df[["Sleep Disorder"]]
+
 
 dt_model = DecisionTreeClassifier()
 dt_model.fit(X, y)
