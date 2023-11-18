@@ -29,3 +29,17 @@ plt.axis('equal')
 st.pyplot(fig)
 
 st.header("---")
+grouped_data = sleep_data.groupby(['Sleep Disorder', 'Gender']).size().reset_index(name='count')
+
+# Create a new DataFrame with Sleep Disorder and Gender as index, and count as values
+pivot_table = pd.pivot_table(grouped_data, values='count', index='Sleep Disorder', columns='Gender', fill_value=0)
+
+# Plot the pie chart
+fig, ax = plt.subplots(figsize=(15, 7))
+colors = ['#ff20b6', '#6eedf2']
+pivot_table.plot.pie(subplots=True, autopct='%1.1f%%', ax=ax, colors=colors)
+plt.title('The relationship between (sex) and (Sleep Disorder)')
+plt.axis('equal')
+
+# Display the plot in Streamlit
+st.pyplot(fig)
