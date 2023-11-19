@@ -70,5 +70,4 @@ if st.button("ทำนายผล"):
    else:
       st.header("Insomnia")
       st.write("AI: ผลการทำนายคือ Insomnia")
-else :
-    st.button("ไม่ทำนายผล")
+      st.button("ไม่ทำนายผล")
