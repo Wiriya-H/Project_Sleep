@@ -19,7 +19,6 @@ html_1 = """
 st.markdown(html_1, unsafe_allow_html=True)
 st.markdown("")
 
-st.subheader("The system analyzes health, sleep and lifestyle using data mining techniques")
 
 
 col1, col2 = st.columns(2)
