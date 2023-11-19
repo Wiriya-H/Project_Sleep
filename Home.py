@@ -37,7 +37,7 @@ st.markdown(html_2, unsafe_allow_html=True)
 st.markdown("")
 
 html_3 = """
-<div style="background-color:#0E1117;">
+<div style="background-color:#0E1117;border-top: 5px solid #ffffff;">
 <center><h4 style="text-indent: 60%;">Wiriya Hemmala</h4></center>
 </div>
 """
