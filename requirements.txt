@@ -9,7 +9,7 @@ wordcloud
 sklearn
 streamlit_lottie
 termcolor
-plotly
+plotly==4.14.3
 seaborn
 openpyxl
 DecisionTreeClassifier
