@@ -45,7 +45,7 @@ st.markdown(
             margin: auto;
         }
         .slider-text {
-            font-size: 18px;
+            font-size: 30px;
             color: #333333;
         }
         .slider {
