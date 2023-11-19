@@ -5,7 +5,7 @@ import pandas as pd
 
 
 df=pd.read_csv('./data/Sleep_predic.csv')
-
+dt = pd.read_csv('./data/Sleep_health_and_lifestyle_dataset.csv')
 
 
 
@@ -17,7 +17,7 @@ html_1 = """
 st.markdown(html_1, unsafe_allow_html=True)
 st.markdown("")
 
-st.write(df.head(10))
+st.write(dt.head(10))
 
 dt1 = df['Sleep Duration'].sum()
 dt2 = df['Quality of Sleep'].sum()
