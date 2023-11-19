@@ -21,13 +21,16 @@ html_1 = """
 st.markdown(html_1, unsafe_allow_html=True)
 st.markdown("")
 
-html_0 = """
-<div>
-    <center><img src="./pic/1.jpg"></center>
-</div>
-"""
-st.markdown(html_0, unsafe_allow_html=True)
-st.markdown("")
+col1, col2, col3 = st.beta_columns([1,6,1])
+
+with col1:
+st.write("")
+
+with col2:
+st.image("./pic/1.jpg")
+
+with col3:
+st.write("")
 
 
 html_2 = """
