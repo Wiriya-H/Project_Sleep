@@ -12,7 +12,7 @@ def load_lottieurl(url: str):
     return r.json()
 
 html_1 = """
-<div style="background-color:#000000;padding:15px;border-radius:15px 15px 15px 15px;border-style:'solid';border-color:black">
+<div style="background-color:#fffffff;padding:15px;border-radius:15px 15px 15px 15px;border-style:'solid';border-color:black">
 <center><h5> </h5></center>
 </div>
 """
