@@ -30,7 +30,7 @@ with col2:
     st.image("./pic/11.jpg")
 
 with col3:
-    st.write("")
+    st.image("./pic/22.jpg")
 
 
 html_2 = """
