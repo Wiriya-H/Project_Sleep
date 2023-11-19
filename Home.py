@@ -12,8 +12,8 @@ def load_lottieurl(url: str):
     return r.json()
 
 html_1 = """
-<div style="border-radius:5px;border-style:'solid';border-color:#fff00f">
-<center><h4>--</h4></center>
+<div style="background-color:#ffffff;border-radius:5px;border-bottom: 3px solid #ff0000;">
+<center><h4></h4></center>
 </div>
 """
 st.markdown(html_1, unsafe_allow_html=True)
