@@ -38,7 +38,7 @@ group_age = df.groupby(['Age', 'Sleep Disorder']).size().reset_index(name='count
 # Create bar chart
 st.bar_chart(group_age, x='Age', y='count', color='Sleep Disorder', height=400)
 
-# Add labels and title if needed
-st.xlabel('Age')
-st.ylabel('Count')
+# Add labels and title
 st.title('Sleep Disorders Count by Age')
+st.text('Age on X-axis')
+st.text('Count on Y-axis')
