@@ -34,4 +34,4 @@ st.pyplot(fig)
 st.header("-----")
 
 group_age = df.groupby(['Age', 'Sleep Disorder']).size().reset_index(name='count')
-st.line_chart(group_age.set_index('Sleep Disorder'), color='Sleep Disorder')
+st.line_chart(group_age.set_index('Sleep Disorder'))
