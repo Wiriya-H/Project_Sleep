@@ -33,47 +33,6 @@ html_2 = """
 st.markdown(html_2, unsafe_allow_html=True)
 st.markdown("")   
 
-
-ptlen = st.number_input("ระยะเวลาการนอนหลับ (ชั่วโมง)")
-ptwd = st.slider("คุณภาพการนอนหลับ (มาตราส่วน: 1-10)",0,10)
-
-st.markdown(
-    """
-    <style>
-        .slider-container {
-            width: 80%;
-            margin: auto;
-        }
-        .slider-text {
-            font-size: 30px;
-            color: #333333;
-        }
-        .slider {
-            width: 100%;
-        }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-ptwd = st.slider(
-    "คุณภาพการนอนหลับ (มาตราส่วน: 1-10)",
-    0, 10,
-    key="ptwd_slider",
-    help="Slide to select the quality of sleep (Scale: 1-10)"
-)
-
-
-
-
-
-
-
-
-
-
-splen = st.number_input("ระดับการออกกําลังกาย (นาที / วัน)")
-spwd = st.slider("ระดับความเครียด (มาตราส่วน: 1-10)",0,10)
-
 from sklearn.tree import DecisionTreeClassifier
 import numpy as np
 
@@ -85,7 +44,11 @@ if st.button("ทำนายผล"):
 
    tree_model = DecisionTreeClassifier()
    tree_model.fit(X, y)
-
+   
+   ptlen = st.number_input("ระยะเวลาการนอนหลับ (ชั่วโมง)")
+   ptwd = st.slider("คุณภาพการนอนหลับ (มาตราส่วน: 1-10)",0,10)
+   splen = st.number_input("ระดับการออกกําลังกาย (นาที / วัน)")
+   spwd = st.slider("ระดับความเครียด (มาตราส่วน: 1-10)",0,10)
 
    x_input = np.array([[ptlen, ptwd, splen, spwd]])
 
@@ -101,6 +64,5 @@ if st.button("ทำนายผล"):
    else:
       st.header("Insomnia")
       st.write("AI: ผลการทำนายคือ Insomnia")
-   st.button("ไม่ทำนายผล")
 else :
     st.button("ไม่ทำนายผล")
