@@ -21,7 +21,7 @@ html_1 = """
 st.markdown(html_1, unsafe_allow_html=True)
 st.markdown("")
 
-col1, col2, col3 = st.columns([1, 6, 1])
+col1, col2, col3 ,col4= st.columns([1, 6, 6, 1])
 
 with col1:
     st.write("")
@@ -31,6 +31,8 @@ with col2:
 
 with col3:
     st.image("./pic/22.jpg")
+with col4:
+    st.write("")
 
 
 html_2 = """
