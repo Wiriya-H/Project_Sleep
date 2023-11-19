@@ -6,6 +6,8 @@ import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
+pip install plotly-express
+
 df = pd.read_csv('./data/Sleep_health_and_lifestyle_dataset.csv')
 
 st.write(df.head(10))
