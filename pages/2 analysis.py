@@ -24,7 +24,7 @@ dt3 = df['Physical Activity Level'].sum()
 dt4 = df['Stress Level'].sum()
 
 dx = [dt1, dt2, dt3, dt4]
-dx2 = pd.DataFrame(dx, index=["d1", "d2", "d3", "d4"])
+dx2 = pd.DataFrame(dx, index=["Sleep Duration", "Quality of Sleep", "Physical Activity Level", "Stress Level"])
 
 if st.button("show bar chart"):
     st.bar_chart(dx2)
