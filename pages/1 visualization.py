@@ -33,3 +33,5 @@ st.pyplot(fig)
 
 st.header("-----")
 
+group_age=pd.DataFrame(df)
+st.bar_chart(group_age['Age'].value_counts())
