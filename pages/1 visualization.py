@@ -2,7 +2,7 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-
+import plotly.figure_factory as ff
 
 df = pd.read_csv('./data/Sleep_health_and_lifestyle_dataset.csv')
 
@@ -32,3 +32,4 @@ plt.axis('equal')
 st.pyplot(fig)
 
 st.header("-----")
+
