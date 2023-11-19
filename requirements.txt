@@ -11,6 +11,6 @@ streamlit_lottie
 termcolor
 plotly
 seaborn
-plotly.express
+plotly
 openpyxl
 DecisionTreeClassifier
