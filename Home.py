@@ -38,7 +38,7 @@ st.markdown("")
 
 html_3 = """
 <div style="background-color:#0E1117;">
-<center><h4>Wiriya Hemmala</h4></center>
+<left><h4>Wiriya Hemmala</h4></left>
 </div>
 """
 st.markdown(html_3, unsafe_allow_html=True)
