@@ -34,11 +34,11 @@ st.markdown(html_2, unsafe_allow_html=True)
 st.markdown("")   
 
 
-ptlen = st.number_input("กรุณาเลือกข้อมูล petal.length")
-ptwd = st.slider("กรุณาเลือกข้อมูล petal.width",0,10)
+ptlen = st.number_input("ระยะเวลาการนอนหลับ (ชั่วโมง)")
+ptwd = st.slider("คุณภาพการนอนหลับ (มาตราส่วน: 1-10)",0,10)
 
-splen = st.number_input("กรุณาเลือกข้อมูล sepal.length")
-spwd = st.slider("กรุณาเลือกข้อมูล sepal.width",0,10)
+splen = st.number_input("ระดับการออกกําลังกาย (นาที / วัน)")
+spwd = st.slider("ระดับความเครียด (มาตราส่วน: 1-10)",0,10)
 
 from sklearn.tree import DecisionTreeClassifier
 import numpy as np
