@@ -11,7 +11,6 @@ def load_lottieurl(url: str):
         return None
     return r.json()
 
-[theme]
 primaryColor="#f9c8ff"
 backgroundColor="#e7bcff"
 secondaryBackgroundColor="#c8f8ff"
