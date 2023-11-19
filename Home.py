@@ -12,7 +12,7 @@ def load_lottieurl(url: str):
     return r.json()
 
 html_1 = """
-<div style="background-color:#0E1117;border-radius:5px;border-bottom: 5px solid #ffffff;border-top: 5px solid #ffffff;">
+<div style="background-color:#0E1117;padding:5px;border-radius:5px;border-bottom: 5px solid #ffffff;border-top: 5px solid #ffffff;">
 <center><h4>ระบบวิเคราะห์สุขภาพการนอนหลับและไลฟ์สไตล์โดยใช้เทคนิคเหมืองข้อมูล</h4></center>
 </div>
 """
