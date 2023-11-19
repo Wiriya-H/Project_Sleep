@@ -37,6 +37,40 @@ st.markdown("")
 ptlen = st.number_input("ระยะเวลาการนอนหลับ (ชั่วโมง)")
 ptwd = st.slider("คุณภาพการนอนหลับ (มาตราส่วน: 1-10)",0,10)
 
+st.markdown(
+    """
+    <style>
+        .slider-container {
+            width: 80%;
+            margin: auto;
+        }
+        .slider-text {
+            font-size: 18px;
+            color: #333333;
+        }
+        .slider {
+            width: 100%;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+ptwd = st.slider(
+    "คุณภาพการนอนหลับ (มาตราส่วน: 1-10)",
+    0, 10,
+    key="ptwd_slider",
+    help="Slide to select the quality of sleep (Scale: 1-10)"
+)
+
+
+
+
+
+
+
+
+
+
 splen = st.number_input("ระดับการออกกําลังกาย (นาที / วัน)")
 spwd = st.slider("ระดับความเครียด (มาตราส่วน: 1-10)",0,10)
 
