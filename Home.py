@@ -29,7 +29,7 @@ st.markdown("")
 html_2 = """
 <div style="background-color:#0E1117;">
 <center><h4>บทคัดย่อ</h4></center><left><h5 style="text-indent: 30px;">สวัสดีวันจันทร์</h5></left>
-<center><h4>Abstract</h4></center><left><h5 style="text-indent: 30px;">สวัสดีวันจันทร์</h5></left>
+<center><h4>Abstract</h4></center><left><h5 style="text-indent: 30px;">Hello Monday</h5></left>
 </div>
 """
 st.markdown(html_2, unsafe_allow_html=True)
