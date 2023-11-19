@@ -10,7 +10,7 @@ sklearn
 streamlit_lottie
 termcolor
 plotly
-KNeighborsClassifier
 seaborn
 plotly==5.9.0
 openpyxl
+DecisionTreeClassifier
