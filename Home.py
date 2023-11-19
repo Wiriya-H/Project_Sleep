@@ -27,7 +27,7 @@ with col1:
     st.write("") 
 
 with col2:
-    st.image("./pic/33.jpg")
+    st.image("./pic/44.png")
 
 with col3:
     st.write("")
