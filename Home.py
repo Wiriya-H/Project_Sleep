@@ -11,12 +11,6 @@ def load_lottieurl(url: str):
         return None
     return r.json()
 
-primaryColor="#f9c8ff"
-backgroundColor="#e7bcff"
-secondaryBackgroundColor="#c8f8ff"
-textColor="#a6ffc7"
-font="sans serif"
-
 
 
 html_1 = """
@@ -29,7 +23,7 @@ st.markdown("")
 
 html_0 = """
 <div style="border-top: 5px solid #ffffff;">
-<center><img src="./jpg/1.jpg" alt="" width="400"></center>
+<center><img src=".pic/1.jpg"></center>
 </div>
 """
 st.markdown(html_0, unsafe_allow_html=True)
