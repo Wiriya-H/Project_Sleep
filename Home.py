@@ -21,10 +21,10 @@ html_1 = """
 st.markdown(html_1, unsafe_allow_html=True)
 st.markdown("")
 
-col1, col2, col3 ,col4= st.columns([1, 6, 6, 1])
+col1, col2, col3, col4 = st.columns([1, 8, 8, 1])
 
 with col1:
-    st.write("Left Space") 
+    st.write("") 
 
 with col2:
     st.image("./pic/11.jpg")
@@ -32,7 +32,7 @@ with col2:
 with col3:
     st.image("./pic/22.jpg")
 with col4:
-    st.write("Right Space")
+    st.write("")
 
 
 html_2 = """
