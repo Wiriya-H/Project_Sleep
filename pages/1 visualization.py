@@ -33,5 +33,12 @@ st.pyplot(fig)
 
 st.header("-----")
 
-group_age=pd.DataFrame(df)
-st.bar_chart(group_age['Age'].value_counts(), columns='Sleep Disorder')
+group_age = df.groupby(['Age', 'Sleep Disorder']).size().reset_index(name='count')
+
+# Create bar chart
+st.bar_chart(group_age, x='Age', y='count', color='Sleep Disorder', height=400)
+
+# Add labels and title if needed
+st.xlabel('Age')
+st.ylabel('Count')
+st.title('Sleep Disorders Count by Age')
