@@ -12,8 +12,8 @@ def load_lottieurl(url: str):
     return r.json()
 
 
-st.header("การวิเคราะห์ความรู้สึกภาษาไทย")
-st.subheader("Wiriya Hemmala DATA SCIENCE NPRU")
+st.header("ระบบวิเคราะห์สุขภาพการนอนหลับและไลฟ์สไตล์โดยใช้เทคนิคเหมืองข้อมูล")
+st.subheader("The system analyzes health, sleep and lifestyle using data mining techniques")
 
 
 col1, col2 = st.columns(2)
