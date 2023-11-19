@@ -11,6 +11,13 @@ def load_lottieurl(url: str):
         return None
     return r.json()
 
+html_1 = """
+<div style="background-color:#000000;padding:15px;border-radius:15px 15px 15px 15px;border-style:'solid';border-color:black">
+<center><h5> </h5></center>
+</div>
+"""
+st.markdown(html_1, unsafe_allow_html=True)
+st.markdown("")
 
 st.header("ระบบวิเคราะห์สุขภาพการนอนหลับและไลฟ์สไตล์โดยใช้เทคนิคเหมืองข้อมูล")
 st.subheader("The system analyzes health, sleep and lifestyle using data mining techniques")
