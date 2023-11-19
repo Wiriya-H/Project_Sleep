@@ -20,6 +20,51 @@ st.markdown(html_1, unsafe_allow_html=True)
 st.markdown("")
 
 
+html_2 = """
+<div style="background-color:#0E1117;">
+<center><h4>บทคัดย่อ</h4><h5>The system analyzes health, sleep and lifestyle using data mining techniques</h5></center>
+</div>
+"""
+st.markdown(html_2, unsafe_allow_html=True)
+st.markdown("")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 col1, col2 = st.columns(2)
 with col1:
