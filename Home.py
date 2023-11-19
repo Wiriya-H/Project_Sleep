@@ -23,7 +23,7 @@ st.markdown("")
 
 html_0 = """
 <div style="border-top: 5px solid #ffffff;">
-<center><image('./pic/1.jpg')></center>
+<center><img src="./pic/1.jpg"></center>
 </div>
 """
 st.markdown(html_0, unsafe_allow_html=True)
