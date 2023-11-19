@@ -1,4 +1,13 @@
 import streamlit as st
+from sklearn.tree import DecisionTreeClassifier
+import numpy as np
+import pandas as pd
+
+df=pd.read_csv('./data/Sleep_predic.csv')
+
+
+
+
 html_1 = """
 <div style="background-color:#0E2954;padding:15px;border-radius:15px 15px 15px 15px;border-style:'solid';border-color:black">
 <center><h5>การทำนายข้อมูลดอกไม้เบื้องต้น</h5></center>
@@ -7,8 +16,6 @@ html_1 = """
 st.markdown(html_1, unsafe_allow_html=True)
 st.markdown("")
 
-import pandas as pd
-df=pd.read_csv('./data/Sleep_predic.csv')
 st.write(df.head(10))
 
 dt1 = df['Sleep Duration'].sum()
@@ -33,26 +40,24 @@ html_2 = """
 st.markdown(html_2, unsafe_allow_html=True)
 st.markdown("")   
 
-from sklearn.tree import DecisionTreeClassifier
-import numpy as np
+
+ptlen = st.number_input("ระยะเวลาการนอนหลับ (ชั่วโมง)")
+ptwd = st.slider("คุณภาพการนอนหลับ (มาตราส่วน: 1-10)",0,10)
+splen = st.number_input("ระดับการออกกําลังกาย (นาที / วัน)")
+spwd = st.slider("ระดับความเครียด (มาตราส่วน: 1-10)",0,10)
+
 
 if st.button("ทำนายผล"):
-   # ทำนาย
 
    X = df.drop('Sleep Disorder', axis=1)
    y = df["Sleep Disorder"]  
 
    tree_model = DecisionTreeClassifier()
    tree_model.fit(X, y)
-   
-   ptlen = st.number_input("ระยะเวลาการนอนหลับ (ชั่วโมง)")
-   ptwd = st.slider("คุณภาพการนอนหลับ (มาตราส่วน: 1-10)",0,10)
-   splen = st.number_input("ระดับการออกกําลังกาย (นาที / วัน)")
-   spwd = st.slider("ระดับความเครียด (มาตราส่วน: 1-10)",0,10)
+
 
    x_input = np.array([[ptlen, ptwd, splen, spwd]])
 
-   #st.write(Knn_model.predict(x_input))
    out = tree_model.predict(x_input)
 
    if out[0]=="Normal":
