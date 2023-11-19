@@ -2,7 +2,6 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-import plotly.express as px
 
 
 df = pd.read_csv('./data/Sleep_health_and_lifestyle_dataset.csv')
@@ -22,7 +21,7 @@ st.pyplot(fig)
 st.header("The relationship between (Age) and (Sleep Disorder)")
 
 grouped_data = df.groupby(['Sleep Disorder', 'Age']).size().reset_index(name='count')
-st.bar_chart(grouped_data.set_index('Age'))
+st.line_chart(grouped_data.set_index('Age'))
 
 st.header("The relationship between (BMI) and (Sleep Disorder)")
 
@@ -33,20 +32,3 @@ plt.axis('equal')
 st.pyplot(fig)
 
 st.header("-----")
-
-fig=px.histogram(sleep_data,x='Sleep Disorder',
-                 color='Sleep Disorder',
-                 facet_col='Stress Level',
-                 barmode='group',
-                 color_discrete_sequence=['white','#4A235A','#C39BD3'],
-                 opacity=.8)
-
-
-fig.update_layout(title='<b>The effect of Stress Level on Sleep Disorder</b> ..',title_font={'size':30},
-                  paper_bgcolor='#EBDEF0',
-                  plot_bgcolor='#EBDEF0')
-
-
-
-fig.update_yaxes(showgrid=False)
-st.pylot(fig)
