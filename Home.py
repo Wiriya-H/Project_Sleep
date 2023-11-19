@@ -22,7 +22,7 @@ st.markdown(html_1, unsafe_allow_html=True)
 st.markdown("")
 
 html_0 = """
-<div style="border-top: 5px solid #ffffff;">
+<div>
 <center><img src="./pic/1.jpg"></center>
 </div>
 """
