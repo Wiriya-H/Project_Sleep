@@ -40,7 +40,7 @@ ptwd = st.slider("กรุณาเลือกข้อมูล petal.width",
 splen = st.number_input("กรุณาเลือกข้อมูล sepal.length")
 spwd = st.slider("กรุณาเลือกข้อมูล sepal.width",0,10)
 
-from sklearn.neighbors import KNeighborsClassifier
+from sklearn.tree import DecisionTreeClassifier
 import numpy as np
 
 if st.button("ทำนายผล"):
@@ -49,14 +49,14 @@ if st.button("ทำนายผล"):
    X = df.drop('Sleep Disorder', axis=1)
    y = df["Sleep Disorder"]  
 
-   Knn_model = KNeighborsClassifier(n_neighbors=3)
-   Knn_model.fit(X, y)
+   tree_model = DecisionTreeClassifier()
+   tree_model.fit(X, y)
 
 
    x_input = np.array([[ptlen, ptwd, splen, spwd]])
 
    #st.write(Knn_model.predict(x_input))
-   out=Knn_model.predict(x_input)
+   out = tree_model.predict(x_input)
 
    if out[0]=="Normal":
       st.header("Normal")
