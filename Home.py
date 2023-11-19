@@ -13,7 +13,7 @@ def load_lottieurl(url: str):
 
 html_1 = """
 <div style="border-radius:5px;border-style:'solid';border-color:#fff00f">
-<center><h4></h4></center>
+<center><h4>--</h4></center>
 </div>
 """
 st.markdown(html_1, unsafe_allow_html=True)
