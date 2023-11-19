@@ -36,7 +36,14 @@ html_2 = """
 st.markdown(html_2, unsafe_allow_html=True)
 st.markdown("")
 
+html_2 = """
+<div style="background-color:#0E1117;">
 
+<right><h4>Wiriya Hemmala 64/44 644285007</h4></right>
+</div>
+"""
+st.markdown(html_2, unsafe_allow_html=True)
+st.markdown("")
 
 
 
