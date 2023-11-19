@@ -19,7 +19,7 @@ st.pyplot(fig)
 
 st.header("The relationship between (Age) and (Sleep Disorder)")
 
-grouped_data = df.groupby(['Sleep Disorder', 'Age']).size().reset_index(name='count')
+grouped_data = df.groupby(['Sleep Disorder', 'Age'], columns='Sleep Disorder').size().reset_index(name='count')
 st.bar_chart(grouped_data.set_index('Age'))
 
 st.header("The relationship between (BMI) and (Sleep Disorder)")
