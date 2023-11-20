@@ -74,11 +74,20 @@ if st.button("ทำนายผล"):
       st.subheader("AI: ผลการทำนายคือปกติ")
    elif out[0]=="Sleep Apnea":
       st.header("Sleep Apnea")
-      st.subheader("AI: ผลการทำนายคือ Sleep Apnea")
+      html_4 = """
+      <div style="background-color:#0E1117;border-bottom: 3px solid #ffffff;border-top: 3px solid #ffffff;">
+      <center><h3>Class Prediction</h3></center>
+      </div>
+      """
+      st.markdown(html_4, unsafe_allow_html=True)
+      st.markdown("")
+
+      
    elif out[0]=="Insomnia":
       st.header("Insomnia")
+      
+      
       st.subheader("การที่คุณไม่สามารถหลับหลับหรือมีปัญหาการนอนเป็นสถานะที่พบได้บ่อยและสามารถเกิดขึ้นจากหลายสาเหตุ. นอนไม่หลับหรือมีปัญหาการนอนมีชื่อทางการแพทย์ว่า นอนไม่หลับ หรือ Insomnia นอนไม่หลับอาจจะเกิดจากปัจจัยที่เป็นปัจจัยทางจิตและทางร่างกาย. นี่คือบางแนวทางที่อาจช่วยให้คุณนอนหลับมีคุณภาพมากขึ้น:")
-      st.subheader("สร้างรูปแบบการนอน: พยายามนอนและตื่นในเวลาเดียวกันทุกวัน, รวมทั้งในวันหยุด, เพื่อช่วยสร้างระบบนอนที่มีความเสถียร.")
-   st.button("ไม่ทำนายผล")
+      st.subheader("1.สร้างรูปแบบการนอน: พยายามนอนและตื่นในเวลาเดียวกันทุกวัน, รวมทั้งในวันหยุด, เพื่อช่วยสร้างระบบนอนที่มีความเสถียร.")   st.button("ไม่ทำนายผล")
 
 
