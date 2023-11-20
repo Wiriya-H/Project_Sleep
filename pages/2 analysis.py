@@ -56,27 +56,27 @@ with col1:
 with col2:
     if st.button("ทำนายผล"):
     
-   X = df.drop('Sleep Disorder', axis=1)
-   y = df["Sleep Disorder"]  
+      X = df.drop('Sleep Disorder', axis=1)
+      y = df["Sleep Disorder"]  
 
-   tree_model = DecisionTreeClassifier()
-   tree_model.fit(X, y)
+      tree_model = DecisionTreeClassifier()
+      tree_model.fit(X, y)
 
 
-   x_input = np.array([[ptlen, ptwd, splen, spwd]])
+      x_input = np.array([[ptlen, ptwd, splen, spwd]])
 
-   out = tree_model.predict(x_input)
+      out = tree_model.predict(x_input)
 
-   if out[0]=="Normal":
-      st.header("Normal")
-      st.write("AI: ผลการทำนายคือปกติ")
-   elif out[0]=="Sleep Apnea":
-      st.header("Sleep Apnea")
-      st.write("AI: ผลการทำนายคือ Sleep Apnea")
-   else:
-      st.header("Insomnia")
-      st.write("AI: ผลการทำนายคือ Insomnia")
-   st.button("ไม่ทำนายผล")
+      if out[0]=="Normal":
+         st.header("Normal")
+         st.write("AI: ผลการทำนายคือปกติ")
+      elif out[0]=="Sleep Apnea":
+         st.header("Sleep Apnea")
+         st.write("AI: ผลการทำนายคือ Sleep Apnea")
+      else:
+         st.header("Insomnia")
+         st.write("AI: ผลการทำนายคือ Insomnia")
+      st.button("ไม่ทำนายผล")
 
 with col3:
     st.write("")
