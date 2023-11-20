@@ -121,7 +121,7 @@ if st.button("ทำนายผล"):
           
       html_4 = """
       <div style="background-color:#0E1117;padding:20px;border: 3px solid #ffffff;">
-      <center><h3 style="border-bottom: 3px solid #ffffff;">Insomnia</h3></center>
+      <center><h3 style="border-bottom: 3px solid #ffffff;">นอนไม่หลับ (Insomnia)</h3></center>
       <left><h6 style="text-indent: 30px;line-height: 1.5;padding-top:15px;">การที่คุณไม่สามารถหลับหลับหรือมีปัญหาการนอนเป็นสถานะที่พบได้บ่อยและสามารถเกิดขึ้นจากหลายสาเหตุ. นอนไม่หลับหรือมีปัญหาการนอนมีชื่อทางการแพทย์ว่า "นอนไม่หลับ" หรือ"Insomnia." นอนไม่หลับอาจจะเกิดจากปัจจัยที่เป็นปัจจัยทางจิตและทางร่างกาย. นี่คือบางแนวทางที่อาจช่วยให้คุณนอนหลับมีคุณภาพมากขึ้น</h6></left>
       <ul>
          <li>พยายามนอนและตื่นในเวลาเดียวกันทุกวัน, รวมทั้งในวันหยุด, เพื่อช่วยสร้างระบบนอนที่มีความเสถียร.</li>
