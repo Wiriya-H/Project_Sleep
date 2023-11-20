@@ -8,7 +8,7 @@ df = pd.read_csv('./data/Sleep_health_and_lifestyle_dataset.csv')
 
 html_0 = """
 <div style="background-color:#0E1117;border-bottom: 3px solid #ffffff;border-top: 3px solid #ffffff;">
-<center><h4>Data</h4></center>
+<center><h3>Data</h3></center>
 </div>
 """
 st.markdown(html_0, unsafe_allow_html=True)
@@ -17,7 +17,7 @@ st.write(df.head(10))
 
 html_1 = """
 <div style="background-color:#0E1117;border-bottom: 3px solid #ffffff;border-top: 3px solid #ffffff;">
-<center><h4>The relationship between (sex) and (Sleep Disorder)</h4></center>
+<center><h3>The relationship between (sex) and (Sleep Disorder)</h3></center>
 </div>
 """
 st.markdown(html_1, unsafe_allow_html=True)
@@ -34,7 +34,7 @@ st.pyplot(fig)
 
 html_2 = """
 <div style="background-color:#0E1117;border-bottom: 3px solid #ffffff;border-top: 3px solid #ffffff;">
-<center><h4>The relationship between (Age) and (Sleep Disorder)</h4></center>
+<center><h3>The relationship between (Age) and (Sleep Disorder)</h3></center>
 </div>
 """
 st.markdown(html_2, unsafe_allow_html=True)
@@ -47,7 +47,7 @@ st.bar_chart(group_age, x='Age', y='count', color='Sleep Disorder', height=400)
 
 html_3 = """
 <div style="background-color:#0E1117;border-bottom: 3px solid #ffffff;border-top: 3px solid #ffffff;">
-<center><h4>The relationship between (BMI) and (Sleep Disorder)</h4></center>
+<center><h3>The relationship between (BMI) and (Sleep Disorder)</h3></center>
 </div>
 """
 st.markdown(html_3, unsafe_allow_html=True)
