@@ -6,9 +6,24 @@ import matplotlib.pyplot as plt
 
 df = pd.read_csv('./data/Sleep_health_and_lifestyle_dataset.csv')
 
+html_1 = """
+<div style="background-color:#0E1117;border-top: 3px solid #ffffff;">
+<center><h4>Data</h4></center>
+</div>
+"""
+st.markdown(html_1, unsafe_allow_html=True)
+st.markdown("")
 st.write(df.head(10))
 
 st.header("The relationship between (sex) and (Sleep Disorder)")
+
+html_1 = """
+<div style="background-color:#0E1117;border-top: 3px solid #ffffff;">
+<center><h4>The relationship between (sex) and (Sleep Disorder)</h4></center>
+</div>
+"""
+st.markdown(html_1, unsafe_allow_html=True)
+st.markdown("")
 
 grouped_data = df.groupby(['Sleep Disorder', 'Gender']).size().reset_index(name='count')
 pivot_table = pd.pivot_table(grouped_data, values='count', index='Sleep Disorder', columns='Gender', fill_value=0)
@@ -18,12 +33,27 @@ pivot_table.plot.pie(subplots=True, autopct='%1.1f%%', ax=ax, colors=colors)
 plt.axis('equal')
 st.pyplot(fig)
 
-st.header("The relationship between (Age) and (Sleep Disorder)")
+
+html_2 = """
+<div style="background-color:#0E1117;border-top: 3px solid #ffffff;">
+<center><h4>The relationship between (Age) and (Sleep Disorder)</h4></center>
+</div>
+"""
+st.markdown(html_2, unsafe_allow_html=True)
+st.markdown("")
+
+
 
 group_age = df.groupby(['Age', 'Sleep Disorder']).size().reset_index(name='count')
 st.bar_chart(group_age, x='Age', y='count', color='Sleep Disorder', height=400)
 
-st.header("The relationship between (BMI) and (Sleep Disorder)")
+html_3 = """
+<div style="background-color:#0E1117;border-top: 3px solid #ffffff;">
+<center><h4>The relationship between (BMI) and (Sleep Disorder)</h4></center>
+</div>
+"""
+st.markdown(html_3, unsafe_allow_html=True)
+st.markdown("")
 
 pivot_table = df.pivot_table(index='BMI Category', columns='Sleep Disorder', aggfunc={'Sleep Disorder': 'count'})
 fig, ax = plt.subplots(figsize=(20, 10))
