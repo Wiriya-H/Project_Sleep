@@ -51,17 +51,10 @@ st.markdown(html_1, unsafe_allow_html=True)
 st.markdown("")
 
 
-ptlen = st.number_input("ระยะเวลาการนอนหลับ (ชั่วโมง)")
-ptwd = st.slider("คุณภาพการนอนหลับ (มาตราส่วน: 1-10)",0,10)
-splen = st.number_input("ระดับการออกกําลังกาย (นาที / วัน)")
-spwd = st.slider("ระดับความเครียด (มาตราส่วน: 1-10)",0,10)
-
-
-
-
-
-
-
+s1 = st.number_input("ระยะเวลาการนอนหลับ (ชั่วโมง)")
+s2 = st.slider("คุณภาพการนอนหลับ (มาตราส่วน: 1-10)",0,10)
+s3 = st.number_input("ระดับการออกกําลังกาย (นาที / วัน)")
+s4 = st.slider("ระดับความเครียด (มาตราส่วน: 1-10)",0,10)
 
 if st.button("ทำนายผล"):
 
@@ -72,7 +65,7 @@ if st.button("ทำนายผล"):
    tree_model.fit(X, y)
 
 
-   x_input = np.array([[ptlen, ptwd, splen, spwd]])
+   x_input = np.array([[s1, s2, s3, s4]])
 
    out = tree_model.predict(x_input)
 
