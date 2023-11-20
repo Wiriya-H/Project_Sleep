@@ -79,7 +79,7 @@ if st.button("ทำนายผล"):
          st.write("") 
 
       with col2:
-         st.image("./pic/ln.jpg")
+         st.write("")
 
       with col3:
          st.write("")
