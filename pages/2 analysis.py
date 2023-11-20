@@ -74,8 +74,8 @@ if st.button("ทำนายผล"):
       st.subheader("AI: ผลการทำนายคือปกติ")
    elif out[0]=="Sleep Apnea":
       html_4 = """
-      <div style="background-color:#0E1117;border-bottom: 3px solid #ffffff;border-top: 3px solid #ffffff;">
-      <center><h3 style="border-bottom: 3px solid #ffffff;">Sleep Apnea</h3></center>
+      <div style="background-color:#0E1117;border-bottom: 3px solid #ffffff;">
+      <center><h3 style="border-top: 3px solid #ffffff;border-bottom: 3px solid #ffffff;">Sleep Apnea</h3></center>
       <left><h6 style="text-indent: 30px;line-height: 1.5;">สร้างรูปแบบการนอน: พยายามนอนและตื่นในเวลาเดียวกันทุกวัน, รวมทั้งในวันหยุด, เพื่อช่วยสร้างระบบนอนที่มีความเสถียร.
       ลดการบริโภคสารกระตุ้น: ลดหรือหลีกเลี่ยงการบริโภคสารกระตุ้นต่อประสาท เช่นคาเฟอีนและนิโคตีนในช่วงหลังเที่ยงคืน.
       สร้างสภาพแวดล้อมที่เหมาะสมสำหรับการนอน: มีที่นอนที่สะดวกสบาย, ควบคุมแสง, และอุณหภูมิห้องให้เหมาะสม.
