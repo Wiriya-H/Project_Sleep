@@ -74,6 +74,18 @@ if st.button("ทำนายผล"):
       st.subheader("AI: ผลการทำนายคือปกติ")
    elif out[0]=="Sleep Apnea":
          
+
+      col1, col2, col3 = st.columns([1.5, 6, 1])
+
+      with col1:
+         st.write("") 
+
+      with col2:
+         st.image("./pic/ln.png")
+
+      with col3:
+         st.write("")
+      
       html_4 = """
       <div style="background-color:#0E1117;padding:20px;border: 3px solid #ffffff;">
       <center>
