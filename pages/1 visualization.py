@@ -44,8 +44,6 @@ st.markdown("")
 
 group_age = df.groupby(['Age', 'Sleep Disorder']).size().reset_index(name='count')
 st.bar_chart(group_age, x='Age', y='count', color='Sleep Disorder', height=400)
-color_mapping = {'์Normal': 'blue', 'Insomnia': 'red', 'Sleep Apnea': 'green'}
-st.bar_chart(group_age, x='Age', y='count', color='Sleep Disorder', height=400, palette=color_mapping, use_container_width=True)
 
 html_3 = """
 <div style="background-color:#0E1117;border-bottom: 3px solid #ffffff;border-top: 3px solid #ffffff;">
