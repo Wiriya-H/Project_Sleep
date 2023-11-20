@@ -31,9 +31,7 @@ show_chart = st.toggle("Show bar chart")
 
 if show_chart:
     st.bar_chart(dx2)
-    st.button("Not show bar chart")
-else:
-    st.button("Not show bar chart")
+
 
 html_1 = """
 <div style="background-color:#0E1117;border-bottom: 3px solid #ffffff;border-top: 3px solid #ffffff;">
