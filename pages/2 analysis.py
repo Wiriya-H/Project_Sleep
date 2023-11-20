@@ -32,13 +32,15 @@ if st.button("show bar chart"):
 else :
     st.button("Not show bar chart") 
 
-html_2 = """
-<div style="background-color:#FFBF00;padding:15px;border-radius:15px 15px 15px 15px;border-style:'solid';border-color:black">
-<center><h5>การทำนายคลาสดอกไม้</h5></center>
+html_1 = """
+<div style="background-color:#0E1117;border-bottom: 3px solid #ffffff;border-top: 3px solid #ffffff;">
+<center><h3>Class Prediction</h3></center>
 </div>
 """
-st.markdown(html_2, unsafe_allow_html=True)
-st.markdown("")   
+st.markdown(html_1, unsafe_allow_html=True)
+st.markdown("")
+st.write(dt.head(10))
+ 
 
 
 ptlen = st.number_input("ระยะเวลาการนอนหลับ (ชั่วโมง)")
