@@ -39,8 +39,6 @@ html_1 = """
 """
 st.markdown(html_1, unsafe_allow_html=True)
 st.markdown("")
-st.write(dt.head(10))
- 
 
 
 ptlen = st.number_input("ระยะเวลาการนอนหลับ (ชั่วโมง)")
