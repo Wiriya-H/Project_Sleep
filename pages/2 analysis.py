@@ -27,10 +27,17 @@ dt4 = df['Stress Level'].sum()
 dx = [dt1, dt2, dt3, dt4]
 dx2 = pd.DataFrame(dx, index=["Sleep Duration", "Quality of Sleep", "Physical Activity Level", "Stress Level"])
 
-show_chart = st.toggle("Show bar chart")
+show_chart = st.checkbox("Show bar chart")
 
 if show_chart:
-    st.bar_chart(dx2)
+    fig, ax = plt.subplots()
+    bars = ax.bar(dx2.index, dx2[0], color='#FF4B4B')  # Set the color to #FF4B4B
+
+    for bar in bars:
+        yval = bar.get_height()
+        plt.text(bar.get_x() + bar.get_width()/2, yval, round(yval, 2), ha='center', va='bottom')
+
+    st.pyplot(fig)
 
 
 html_1 = """
