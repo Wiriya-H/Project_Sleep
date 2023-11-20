@@ -47,8 +47,15 @@ splen = st.number_input("ระดับการออกกําลังก�
 spwd = st.slider("ระดับความเครียด (มาตราส่วน: 1-10)",0,10)
 
 
-if st.button("ทำนายผล"):
 
+col1, col2, col3 = st.columns([1, 6, 1])
+
+with col1:
+    st.write("") 
+
+with col2:
+    if st.button("ทำนายผล"):
+    
    X = df.drop('Sleep Disorder', axis=1)
    y = df["Sleep Disorder"]  
 
@@ -71,51 +78,12 @@ if st.button("ทำนายผล"):
       st.write("AI: ผลการทำนายคือ Insomnia")
    st.button("ไม่ทำนายผล")
 
+with col3:
+    st.write("")
 
-html_2 = """
-<div style="background-color:#0E1117;border-bottom: 3px solid #ffffff;border-top: 3px solid #ffffff;">
-<center>
-<button onclick="predictOutcome()">ทำนายผล</button>
 
-<div id="result"></div>
-<button onclick="noPrediction()">ไม่ทำนายผล</button>
 
-<script>
-function predictOutcome() {
-   // Assuming you have already defined the values of ptlen, ptwd, splen, and spwd
-   var ptlen = /* populate ptlen */;
-   var ptwd = /* populate ptwd */;
-   var splen = /* populate splen */;
-   var spwd = /* populate spwd */;
 
-   // Assuming you have already loaded the DecisionTreeClassifier and df data
-   var X = /* Populate your X data */;
-   var y = /* Populate your y data */;
 
-   var tree_model = new DecisionTreeClassifier();
-   tree_model.fit(X, y);
 
-   var x_input = [[ptlen, ptwd, splen, spwd]];
-   var out = tree_model.predict(x_input);
 
-   var resultDiv = document.getElementById("result");
-
-   if (out[0] == "Normal") {
-      resultDiv.innerHTML = "<h1>Normal</h1><p>AI: ผลการทำนายคือปกติ</p>";
-   } else if (out[0] == "Sleep Apnea") {
-      resultDiv.innerHTML = "<h1>Sleep Apnea</h1><p>AI: ผลการทำนายคือ Sleep Apnea</p>";
-   } else {
-      resultDiv.innerHTML = "<h1>Insomnia</h1><p>AI: ผลการทำนายคือ Insomnia</p>";
-   }
-}
-
-function noPrediction() {
-   // Implement the behavior when "ไม่ทำนายผล" button is clicked
-}
-</script>
-
-</center>
-</div>
-"""
-st.markdown(html_2, unsafe_allow_html=True)
-st.markdown("")
