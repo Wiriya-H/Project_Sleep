@@ -9,14 +9,13 @@ dt = pd.read_csv('./data/Sleep_health_and_lifestyle_dataset.csv')
 
 
 
-html_1 = """
-<div style="background-color:#0E2954;padding:15px;border-radius:15px 15px 15px 15px;border-style:'solid';border-color:black">
-<center><h5>การทำนายข้อมูลดอกไม้เบื้องต้น</h5></center>
+html_0 = """
+<div style="background-color:#0E1117;border-bottom: 3px solid #ffffff;border-top: 3px solid #ffffff;">
+<center><h3>Example data table</h3></center>
 </div>
 """
-st.markdown(html_1, unsafe_allow_html=True)
+st.markdown(html_0, unsafe_allow_html=True)
 st.markdown("")
-
 st.write(dt.head(10))
 
 dt1 = df['Sleep Duration'].sum()
