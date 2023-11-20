@@ -59,4 +59,3 @@ pivot_table.plot.pie(subplots=True, autopct='%1.1f%%', ax=ax, colors=['#57b199',
 plt.axis('equal') 
 st.pyplot(fig)
 
-st.header("-----")
