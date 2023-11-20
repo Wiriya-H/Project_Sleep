@@ -3,12 +3,6 @@ from sklearn.tree import DecisionTreeClassifier
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-import base64
-
-# Open the image file in binary mode
-with open("./pic/ln.jpg", "rb") as image_file:
-    # Encode the image as base64
-    encoded_image = base64.b64encode(image_file.read()).decode("utf-8")
 
 
 df=pd.read_csv('./data/Sleep_predic.csv')
@@ -83,7 +77,7 @@ if st.button("ทำนายผล"):
       html_4 = """
       <div style="background-color:#0E1117;padding:20px;border: 3px solid #ffffff;">
       <center>
-      <img src="data:image/jpg;base64,{encoded_image}" alt="Sleep Apnea Image">
+      <h2><h2><h2 style:"background: #ffffff url(./pic/ln.jpg) center center/cover no-repeat;"></h2></h2></h2>
       <h3 style="border-bottom: 3px solid #ffffff;">Sleep Apnea</h3>
       </center>
       <left><h6 style="text-indent: 30px;line-height: 1.5;padding-top:15px;">การที่คุณไม่สามารถหลับหลับหรือมีปัญหาการนอนเป็นสถานะที่พบได้บ่อยและสามารถเกิดขึ้นจากหลายสาเหตุ. นอนไม่หลับหรือมีปัญหาการนอนมีชื่อทางการแพทย์ว่า "นอนไม่หลับ" หรือ"Insomnia." นอนไม่หลับอาจจะเกิดจากปัจจัยที่เป็นปัจจัยทางจิตและทางร่างกาย. นี่คือบางแนวทางที่อาจช่วยให้คุณนอนหลับมีคุณภาพมากขึ้น</h6></left>
