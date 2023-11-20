@@ -48,7 +48,7 @@ spwd = st.slider("ระดับความเครียด (มาตรา
 
 
 
-col1, col2, col3 = st.columns([2, 6, 2])
+col1, col2, col3 = st.columns([3, 6, 1])
 
 with col1:
     st.write("") 
