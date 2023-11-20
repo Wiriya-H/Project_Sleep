@@ -74,7 +74,7 @@ if st.button("ทำนายผล"):
       st.subheader("AI: ผลการทำนายคือปกติ")
    elif out[0]=="Sleep Apnea":
       html_4 = """
-      <div style="background-color:#0E1117;border-bottom: 3px solid #ffffff;border-left: 3px solid #ffffff;border-right: 3px solid #ffffff;">
+      <div style="background-color:#0E1117;padding:20px;border-bottom: 3px solid #ffffff;border-left: 3px solid #ffffff;border-right: 3px solid #ffffff;">
       <center><h3 style="border-top: 3px solid #ffffff;border-bottom: 3px solid #ffffff;">Sleep Apnea</h3></center>
       <left><h6 style="text-indent: 30px;line-height: 1.5;padding-top:15px">การที่คุณไม่สามารถหลับหลับหรือมีปัญหาการนอนเป็นสถานะที่พบได้บ่อยและสามารถเกิดขึ้นจากหลายสาเหตุ. นอนไม่หลับหรือมีปัญหาการนอนมีชื่อทางการแพทย์ว่า "นอนไม่หลับ" หรือ"Insomnia." นอนไม่หลับอาจจะเกิดจากปัจจัยที่เป็นปัจจัยทางจิตและทางร่างกาย. นี่คือบางแนวทางที่อาจช่วยให้คุณนอนหลับมีคุณภาพมากขึ้น</h6></left>
       <ul>
@@ -87,7 +87,7 @@ if st.button("ทำนายผล"):
          <li>ใช้เตียงเพื่อการนอน: หลีกเลี่ยงใช้เตียงเพื่อทำงานหรือดูทีวี เพื่อให้ร่างกายเข้าใจว่าที่นอนคือสถานที่สำหรับการนอน.</li>
          <li>พักผ่อนก่อนนอน: ให้ตัวเองเวลาสักพักผ่อนก่อนการนอน เช่น การอ่านหนังสือ, การฟังเพลงผ่อนคลาย, หรือการทำโยคะ.</li>
       </ul>
-      <left><h6 style="text-indent: 30px;line-height: 1.5;padding-top:15px">หากปัญหาการนอนไม่หลับยังคงต่อเนื่องหลังจากลองมีการปรับปรุงดังกล่าว, คุณควรพบแพทย์หรือผู้เชี่ยวชาญด้านการนอนเพื่อการปรึกษาและการวินิจฉัยที่ถูกต้อง</h6></left>
+      <left><h6 style="text-indent: 30px;line-height: 1.5;padding-top:15px;">หากปัญหาการนอนไม่หลับยังคงต่อเนื่องหลังจากลองมีการปรับปรุงดังกล่าว, คุณควรพบแพทย์หรือผู้เชี่ยวชาญด้านการนอนเพื่อการปรึกษาและการวินิจฉัยที่ถูกต้อง</h6></left>
       </div>
       """
       st.markdown(html_4, unsafe_allow_html=True)
