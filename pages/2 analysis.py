@@ -38,7 +38,7 @@ if show_chart:
         yval = bar.get_height()
         plt.text(bar.get_x() + bar.get_width()/2, yval, round(yval, 2), ha='center', va='bottom')
    
-    plt.xticks(fontsize=12)
+    plt.xticks(fontsize=8)
     st.pyplot(fig)
 
 
