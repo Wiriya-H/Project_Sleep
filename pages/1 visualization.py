@@ -59,6 +59,12 @@ pivot_table.plot.pie(subplots=True, autopct='%1.1f%%', ax=ax, colors=['#57b199',
 plt.axis('equal') 
 st.pyplot(fig)
 
-
+html_4 = """
+<div style="background-color:#0E1117;border-bottom: 3px solid #ffffff;border-top: 3px solid #ffffff;">
+<center><h3>The relationship between (Occupation) and (Sleep Disorder)</h3></center>
+</div>
+"""
+st.markdown(html_4, unsafe_allow_html=True)
+st.markdown("")
 group_age = df.groupby(['Occupation', 'Sleep Disorder']).size().reset_index(name='count')
 st.bar_chart(group_age, x='Occupation', y='count', color='Sleep Disorder', height=400)
