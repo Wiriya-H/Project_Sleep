@@ -6,10 +6,7 @@ pandas
 pythainlp
 scikit-learn
 wordcloud
-sklearn
 streamlit_lottie
 termcolor
-plotly==4.14.3
-seaborn
 openpyxl
 DecisionTreeClassifier
