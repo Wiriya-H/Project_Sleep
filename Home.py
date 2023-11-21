@@ -88,4 +88,5 @@ st.markdown("")
 
 
 
-st.balloons()
+
+st.snow()
