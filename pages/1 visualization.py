@@ -55,7 +55,7 @@ st.markdown("")
 
 pivot_table = df.pivot_table(index='BMI Category', columns='Sleep Disorder', aggfunc={'Sleep Disorder': 'count'})
 fig, ax = plt.subplots(figsize=(20, 10))
-pivot_table.plot.pie(subplots=True, autopct='%1.1f%%', ax=ax, colors=['#57b199', '#7fc15a', '#ffa53b', '#e33d25'])
+pivot_table.plot.pie(subplots=True, autopct='%1.1f%%', ax=ax, colors=['#FF9EAA', '#FFD0D0', '#5CD2E6', '#3085C3'])
 plt.axis('equal') 
 st.pyplot(fig)
 
