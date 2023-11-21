@@ -26,7 +26,7 @@ st.markdown("")
 grouped_data = df.groupby(['Sleep Disorder', 'Gender']).size().reset_index(name='count')
 pivot_table = pd.pivot_table(grouped_data, values='count', index='Sleep Disorder', columns='Gender', fill_value=0)
 fig, ax = plt.subplots(figsize=(15, 7))
-colors = ['#3085C3', '#ED5AB3', '#5CD2E6']
+colors = ['#3085C3', '#FF9EAA', '#5CD2E6']
 pivot_table.plot.pie(subplots=True, autopct='%1.1f%%', ax=ax, colors=colors)
 plt.axis('equal')
 st.pyplot(fig)
