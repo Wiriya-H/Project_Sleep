@@ -6,7 +6,7 @@ pandas
 pythainlp
 scikit-learn
 wordcloud
-scikit-learn==<version>
+scikit-learn==0.24.2
 streamlit_lottie
 termcolor
 plotly==4.14.3
