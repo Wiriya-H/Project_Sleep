@@ -59,3 +59,6 @@ pivot_table.plot.pie(subplots=True, autopct='%1.1f%%', ax=ax, colors=['#57b199',
 plt.axis('equal') 
 st.pyplot(fig)
 
+
+group_age = df.groupby(['Occupation', 'Sleep Disorder']).size().reset_index(name='count')
+st.bar_chart(group_age, x='Occupation', y='count', color='Sleep Disorder', height=400)
