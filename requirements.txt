@@ -5,7 +5,6 @@ Pillow
 pandas
 pythainlp
 scikit-learn
-wordcloud
 streamlit_lottie
 termcolor
 openpyxl
