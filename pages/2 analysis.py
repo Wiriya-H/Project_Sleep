@@ -38,7 +38,7 @@ if st.button("ทำนายผล"):
    X = df.drop('Sleep Disorder', axis=1)
    y = df["Sleep Disorder"]  
 
-   tree_model = DecisionTreeClassifier()
+   tree_model = DecisionTreeClassifier(criterion='entropy')
    tree_model.fit(X, y)
 
 
