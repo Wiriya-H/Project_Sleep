@@ -27,11 +27,17 @@ html_1 = """
 st.markdown(html_1, unsafe_allow_html=True)
 st.markdown("")
 
-
-s1 = st.slider("ช่วงอายุ (1 คือ 20-27 | 2 คือ 28-35 | 3 คือ 36-43 | 4 คือ 44-51 | 5 คือ 52-59)",1,5)
-s2 = st.slider("คุณภาพการนอนหลับ (มาตราส่วน: 1-10)",0,10)
-s3 = st.number_input("ระดับการออกกําลังกาย (นาที / วัน)")
-s4 = st.slider("ระดับความเครียด (มาตราส่วน: 1-10)",0,10)
+s1 = st.slider("เพศ (1 คือ ชาย | 0 คือ หญิง)",0,1)
+s2 = st.slider("ช่วงอายุ (1 คือ 20-27 | 2 คือ 28-35 | 3 คือ 36-43 | 4 คือ 44-51 | 5 คือ 52-59)",1,5)
+s3 = st.number_input("ระยะเวลาการนอนหลับ (ชั่วโมง)")
+s4 = st.slider("คุณภาพการนอนหลับ (มาตราส่วน: 1-10)",1,10)
+s5 = st.number_input("ระดับการออกกําลังกาย (นาที/วัน)")
+s6 = st.slider("ระดับความเครียด (มาตราส่วน: 1-10)",1,10)
+s7 = st.slider("หมวด BMI (1 คิอ Normal 2 คือ Overweight 3 คือ Obese)",1,3)
+s8 = st.number_input("ความดันโลหิตซิสโตลิก (Systolic Blood Pressure)")
+s9 = st.number_input("ความดันโลหิตช่วงล่าง (Diastolic Blood Pressure)")
+s10 = st.number_input("อัตราการเต้นของหัวใจ (Heart Rate)")
+s11 = st.number_input("จํานวนก้าวรายวัน (Steps per day)")
 
 if st.button("ทำนายผล"):
 
@@ -42,7 +48,7 @@ if st.button("ทำนายผล"):
    tree_model.fit(X, y)
 
 
-   x_input = np.array([[s1, s2, s3, s4]])
+   x_input = np.array([[s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11]])
 
    out = tree_model.predict(x_input)
 
