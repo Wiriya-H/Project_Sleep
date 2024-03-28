@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 df = pd.read_csv('./data/Sleep_health_and_lifestyle_dataset.csv')
 
 html_0 = """
-<div style="background-color:#0E1117;border-bottom: 3px solid #ffffff;border-top: 3px solid #ffffff;">
+<div style="background-color:#ffffff;border-bottom: 3px solid #0E1117;border-top: 3px solid #0E1117;">
 <center><h3>Example data table</h3></center>
 </div>
 """
