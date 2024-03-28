@@ -16,7 +16,7 @@ st.markdown("")
 st.write(df.head(10))
 
 html_1 = """
-<div style="background-color:#0E1117;border-bottom: 3px solid #ffffff;border-top: 3px solid #ffffff;">
+<div style="background-color:#ffffff;border-bottom: 3px solid #0E1117;border-top: 3px solid #0E1117;">
 <center><h3>The relationship between (sex) and (Sleep Disorder)</h3></center>
 </div>
 """
@@ -33,7 +33,7 @@ st.pyplot(fig)
 
 
 html_2 = """
-<div style="background-color:#0E1117;border-bottom: 3px solid #ffffff;border-top: 3px solid #ffffff;">
+<div style="background-color:#ffffff;border-bottom: 3px solid #0E1117;border-top: 3px solid #0E1117;">
 <center><h3>The relationship between (Age) and (Sleep Disorder)</h3></center>
 </div>
 """
@@ -46,7 +46,7 @@ group_age = df.groupby(['Age', 'Sleep Disorder']).size().reset_index(name='count
 st.bar_chart(group_age, x='Age', y='count', color='Sleep Disorder', height=400)
 
 html_3 = """
-<div style="background-color:#0E1117;border-bottom: 3px solid #ffffff;border-top: 3px solid #ffffff;">
+<div style="background-color:#ffffff;border-bottom: 3px solid #0E1117;border-top: 3px solid #0E1117;">
 <center><h3>The relationship between (BMI) and (Sleep Disorder)</h3></center>
 </div>
 """
@@ -60,7 +60,7 @@ plt.axis('equal')
 st.pyplot(fig)
 
 html_4 = """
-<div style="background-color:#0E1117;border-bottom: 3px solid #ffffff;border-top: 3px solid #ffffff;">
+<div style="background-color:#ffffff;border-bottom: 3px solid #0E1117;border-top: 3px solid #0E1117;">
 <center><h3>The relationship between (Occupation) and (Sleep Disorder)</h3></center>
 </div>
 """
