@@ -20,7 +20,7 @@ st.markdown("")
 st.write(dt.head(10))
 
 html_1 = """
-<div style="background-color:#0E1117;border-bottom: 3px solid #ffffff;border-top: 3px solid #ffffff;margin-top:20px;">
+<div style="background-color:#ffffff;border-bottom: 3px solid 0E1117;border-top: 3px solid 0E1117;margin-top:20px;">
 <center><h3>Class Prediction</h3></center>
 </div>
 """
