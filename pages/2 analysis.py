@@ -66,8 +66,8 @@ if st.button("ทำนายผล"):
           
           
       html_4 = """
-      <div style="background-color:#0E1117;padding:20px;border: 3px solid #ffffff;">
-      <center><h3 style="border-bottom: 3px solid #ffffff;">นอนหลับปกติ (Normal)</h3></center>
+      <div style="background-color:#ffffff;padding:20px;border: 3px solid #0E1117;">
+      <center><h3 style="border-bottom: 3px solid #0E1117;">นอนหลับปกติ (Normal)</h3></center>
       <left><h6 style="text-indent: 30px;line-height: 1.5;padding-top:15px;">สุขภาพการนอนเป็นส่วนสำคัญของสุขภาพทั่วๆ ไป และมีผลมากต่อความเป็นอยู่ของบุคคลในทุกวัย การนอนไม่เพียงแต่เติมพลังให้ร่างกายและสมอง แต่ยังมีผลต่อการทำงานของระบบฮอร์โมน การฟื้นตัวของร่างกาย และการนอนที่ดีเป็นสิ่งสำคัญที่มีผลดีต่อสุขภาพทั้งร่างกายและจิตใจ นี่คือบางแนวทางที่ช่วยให้คุณมีการนอนที่ดี</h6></left>
       <ul>
          <li>ตั้งเวลานอนและตื่น: พยายามที่จะนอนและตื่นขึ้นในเวลาเดียวกันทุกวัน, แม้วันหยุด การทำเช่นนี้ช่วยปรับลำดับการนอนของร่างกาย.</li>
@@ -100,8 +100,8 @@ if st.button("ทำนายผล"):
           
           
       html_4 = """
-      <div style="background-color:#0E1117;padding:20px;border: 3px solid #ffffff;">
-      <center><h3 style="border-bottom: 3px solid #ffffff;">การหยุดหายใจขณะหลับ (Sleep Apnea)</h3></center>
+      <div style="background-color:#ffffff;padding:20px;border: 3px solid #0E1117;">
+      <center><h3 style="border-bottom: 3px solid #0E1117;">การหยุดหายใจขณะหลับ (Sleep Apnea)</h3></center>
       <left><h6 style="text-indent: 30px;line-height: 1.5;padding-top:15px;">การหยุดหายใจขณะหลับอาจเกิดจากสาเหตุหลายประการ ซึ่งบางครั้งอาจเป็นเรื่องที่ร้ายแรงและต้องได้รับการตรวจวินิจฉัยและรักษาโดยทันที นอกจากนี้ก็มีสาเหตุที่ไม่ร้ายแรงหรือเป็นเรื่องที่เกิดขึ้นได้บ้าง ต่อไปนี้คือบางสาเหตุที่อาจทำให้เกิดการหยุดหายใจขณะหลับ นี่คือบางแนวทางที่อาจช่วยให้คุณนอนหลับมีคุณภาพมากขึ้น</h6></left>
       <ul>
          <li>การปรับเปลี่ยนท่านอน: การนอนที่ทำให้หัวและคออยู่ในตำแหน่งที่ดีสำหรับการหายใจ เช่น ท่านอนที่หลังหรือการใช้หมอนที่รองรับคอสามารถช่วยลดการอุดตันในท่อลมประสาท.</li>
@@ -132,8 +132,8 @@ if st.button("ทำนายผล"):
           
           
       html_5 = """
-      <div style="background-color:#0E1117;padding:20px;border: 3px solid #ffffff;">
-      <center><h3 style="border-bottom: 3px solid #ffffff;">นอนไม่หลับ (Insomnia)</h3></center>
+      <div style="background-color:#ffffff;padding:20px;border: 3px solid #0E1117;">
+      <center><h3 style="border-bottom: 3px solid #0E1117;">นอนไม่หลับ (Insomnia)</h3></center>
       <left><h6 style="text-indent: 30px;line-height: 1.5;padding-top:15px;">การที่คุณไม่สามารถหลับหลับหรือมีปัญหาการนอนเป็นสถานะที่พบได้บ่อยและสามารถเกิดขึ้นจากหลายสาเหตุ. นอนไม่หลับหรือมีปัญหาการนอนมีชื่อทางการแพทย์ว่า "นอนไม่หลับ" หรือ"Insomnia." นอนไม่หลับอาจจะเกิดจากปัจจัยที่เป็นปัจจัยทางจิตและทางร่างกาย. นี่คือบางแนวทางที่อาจช่วยให้คุณนอนหลับมีคุณภาพมากขึ้น</h6></left>
       <ul>
          <li>พยายามนอนและตื่นในเวลาเดียวกันทุกวัน, รวมทั้งในวันหยุด, เพื่อช่วยสร้างระบบนอนที่มีความเสถียร.</li>
